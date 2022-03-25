@@ -58,6 +58,7 @@ void (timer_int_handler)() {
 }
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
+<<<<<<< HEAD
      *st = TIMER_RB_CMD | TIMER_RB_COUNT_ | TIMER_RB_SEL(timer);
      if (timer == 0) {
        sys_outb(TIMER_CTRL, *st);
@@ -81,41 +82,40 @@ int (timer_get_conf)(uint8_t timer, uint8_t *st) {
 
 int (timer_display_conf)(uint8_t timer, uint8_t st, enum timer_status_field field) {
   union timer_status_field_val val1;
-  if(field == tsf_all){
+  if (field == tsf_all) {
     val1.byte = st;
-
   }
-  else if(field == tsf_initial){
-     if((st & TIMER_LSB_MSB) == TIMER_LSB_MSB){
-       val1.in_mode = MSB_after_LSB;
-     }
-     else if((st & TIMER_LSB) == TIMER_LSB){
-       val1.in_mode = LSB_only;
-     }
-     else if((st & TIMER_MSB) == TIMER_MSB){
-       val1.in_mode = MSB_only;
-     }
-     else{
-       val1.in_mode = INVAL_val;
-     }
+  else if (field == tsf_initial) {
+    if ((st & TIMER_LSB_MSB) == TIMER_LSB_MSB) {
+      val1.in_mode = MSB_after_LSB;
+    }
+    else if ((st & TIMER_LSB) == TIMER_LSB) {
+      val1.in_mode = LSB_only;
+    }
+    else if ((st & TIMER_MSB) == TIMER_MSB) {
+      val1.in_mode = MSB_only;
+    }
+    else {
+      val1.in_mode = INVAL_val;
+    }
   }
-  else if(field == tsf_mode){
-    uint8_t mode = (BIT(3)|BIT(2)|BIT(1)) & st;
+  else if (field == tsf_mode) {
+    uint8_t mode = (BIT(3) | BIT(2) | BIT(1)) & st;
     mode = mode >> 1;
-    if(mode == 6){
+    if (mode == 6) {
       mode = 2;
     }
-    if(mode == 7){
+    if (mode == 7) {
       mode = 3;
     }
     val1.count_mode = mode;
   }
-  else if(field == tsf_base){
+  else if (field == tsf_base) {
     val1.bcd = BIT(0) & st;
   }
-  else{
+  else {
     return 1;
   }
-  timer_print_config(timer,field,val1);
+  timer_print_config(timer, field, val1);
   return 0;
 }
