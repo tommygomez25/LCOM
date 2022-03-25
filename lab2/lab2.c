@@ -1,9 +1,6 @@
 #include <lcom/lcf.h>
 #include <lcom/lab2.h>
-<<<<<<< HEAD
-=======
 
->>>>>>> 6e858c7268dcdeae35fd7904a56186ca8dd99497
 #include <stdbool.h>
 #include <stdint.h>
 
