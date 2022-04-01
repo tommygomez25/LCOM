@@ -5,15 +5,17 @@
 
 #include "i8254.h"
 
+unsigned long int counter = 0;
+
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   if (timer < 0 || timer > 2 || freq < 19)  {
     return 1;
   }
   uint8_t st;
-  timer_get_conf(timer, &st);
-  uint8_t preserve = st << 4;
-  preserve = preserve >> 4;
-  uint32_t controlWord = TIMER_LSB_MSB | preserve;
+  timer_get_conf(timer, &st); // escrevo em st o status
+  uint8_t preserve = st << 4; // preservo os 4 bits do status 
+  preserve = preserve >> 4; 
+  uint32_t controlWord = TIMER_LSB_MSB | preserve; 
   if(timer == 0){
     controlWord = TIMER_SEL0 | controlWord;
   }
@@ -27,57 +29,63 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   uint8_t msb = (uint8_t) (div >> 8);
   uint8_t lsb = (uint8_t) div;
 
-  if (sys_outb(TIMER_CTRL, controlWord) != OK) {
+  if (sys_outb(TIMER_CTRL, controlWord) != OK) { // escreve para o TIMER_CTRL o valor de controlWord
     return 1;
   }
+
   if (sys_outb(TIMER_0 + timer, lsb) != OK) {
     return 1;
   }
+
   if (sys_outb(TIMER_0 + timer, msb) != OK) {
     return 1;
   }
+  
   return 0;
 }
 
+int hook_id = 0;
+
 int (timer_subscribe_int)(uint8_t *bit_no) {
-  
-  sys_irqsetpolicy(TIMER0_IRQ, IRQ_REENABLE, *hook_id)
+  *bit_no = (uint8_t) hook_id;
+  if (sys_irqsetpolicy(TIMER0_IRQ, IRQ_REENABLE, &hook_id)){
+    return 1;
+  }
   return 0;
 }
 
 int (timer_unsubscribe_int)() {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
-
-  return 1;
+  if (sys_irqrmpolicy(&hook_id)){
+    return 1;
+  }
+  return 0;
 }
 
 void (timer_int_handler)() {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  counter++;
 }
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
-<<<<<<< HEAD
-     *st = TIMER_RB_CMD | TIMER_RB_COUNT_ | TIMER_RB_SEL(timer);
-     if (timer == 0) {
-       sys_outb(TIMER_CTRL, *st);
+
+    uint8_t readBackCommand = TIMER_RB_CMD | TIMER_RB_COUNT_ | TIMER_RB_SEL(timer);
+    sys_outb(TIMER_CTRL, readBackCommand); // escreve valor do readbackcommand para o TIMER_ctrl 
+
+    if (timer == 0) {
        util_sys_inb(TIMER_0, st);
       return 0;
     }
+
     else if (timer == 1) {
-      sys_outb(TIMER_CTRL, *st);
       util_sys_inb(TIMER_1, st);
       return 0;
     }
-   else if (timer == 2) {
-      sys_outb(TIMER_CTRL, *st);
+
+    else if (timer == 2) {
       util_sys_inb(TIMER_2, st);
       return 0;
-   }
-   else {
-      return 1;
-   }
+    }
+
+   return 1;
 }
 
 int (timer_display_conf)(uint8_t timer, uint8_t st, enum timer_status_field field) {
