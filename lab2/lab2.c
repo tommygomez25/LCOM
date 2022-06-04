@@ -4,7 +4,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-extern unsigned int counter;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -39,49 +38,39 @@ int(timer_test_read_config)(uint8_t timer, enum timer_status_field field) {
   else{return 1;}
 }
 
+
 int(timer_test_time_base)(uint8_t timer, uint32_t freq) {
   timer_set_frequency(timer,freq);
   return 0;
 }
 
 int(timer_test_int)(uint8_t time) {
-  if (time < 0 ) return 1;
-
-  uint8_t bit_no = 0; //result of timer_subscribe_int
-  int ipc_status, r;  //result of driver_receive
+  uint8_t bit_no = 0;
+  timer_subscribe_int(&bit_no);
+  int count = 0;
+  int ipc_status,r;
+  int irq_set = 1;
   message msg;
-  uint32_t irq_set;
-
-  if(timer_subscribe_int(&bit_no)) return 1;
-  irq_set = (uint32_t) BIT(bit_no);
-
-  while(time) { 
-    /* Get a request message. */
-    if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
-        printf("driver_receive failed with: %d", r);
-        continue;
+  while( count/60 <time ) {
+    if( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) {
+      printf("driver_receive failed with: %d", r);
+      continue;
     }
-    if (is_ipc_notify(ipc_status)) { /* received notification */
-        switch (_ENDPOINT_P(msg.m_source)) {
-            case HARDWARE: /* hardware interrupt notification */				
-                if (msg.m_notify.interrupts & irq_set) { /* subscribed interrupt */
-                    timer_int_handler();
-                    if (counter == 60){
-                      timer_print_elapsed_time();
-                      counter = 0;
-                      time--;
-                    }
-                }
-                break;
-            default:
-                break; /* no other notifications expected: do nothing */	
-        }
-    } else { /* received a standard message, not a notification */
-        /* no standard messages expected: do nothing */
+    if (is_ipc_notify(ipc_status)) {
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE:
+          if (msg.m_notify.interrupts & irq_set) {
+            count+=1;
+            if(count % 60==0)
+              timer_print_elapsed_time();
+          }
+          break;
+        default:
+          break;
+      }
     }
- }
- if (timer_unsubscribe_int()){
-   return 1;
- }
+    else {}
+  }
+  timer_unsubscribe_int();
   return 0;
 }
