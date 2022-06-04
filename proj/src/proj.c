@@ -77,7 +77,12 @@ int(proj_main_loop)() {
                     get_xpm(body,  xbody,  ybody);
                     get_xpm(head,  xhead,  yhead);
                     int x = 20;
-                    if(ytail==ybody){
+                    
+                     xtail=xbody;
+                     ytail=ybody;
+                     xbody=xhead;
+                     ybody=yhead;
+                     if(ytail==ybody){
                       if(xtail>xbody){
                         tail=snaketailleft;
                       }
@@ -95,22 +100,10 @@ int(proj_main_loop)() {
                       }
                       
                     }  
-                    if(xbody==xhead){
-                      body=snakebodyvertical;
-                      
-                    }
-                    else{
-                      body=snakebodyhorizontal;
-                     
-                    }
-                     xtail=xbody;
-                     ytail=ybody;
-                     xbody=xhead;
-                     ybody=yhead;
                     if(last==UP){
                       head=snakeheadup;
                       yhead-=x;
-                    }
+                    }  
                     else if(last==DOWN){
                       head=snakeheaddown;
                       yhead+=x;
@@ -124,7 +117,25 @@ int(proj_main_loop)() {
                     else if(last==LEFT){
                       head=snakeheadleft;
                       xhead-=x;
-                    }            
+                    }  
+                    if((xtail>xbody && xbody>xhead) || (xtail<xbody && xbody<xhead)){
+                      body = snakebodyhorizontal;
+                    }
+                    else if((ytail>ybody && ybody>yhead) || (ytail<ybody && ybody<yhead)){
+                      body = snakebodyvertical;
+                    }
+                    else if((ytail>ybody && xtail == xbody && yhead==ybody && xhead > xbody)|| (yhead>ybody && xhead == xbody && ytail==ybody && xtail > xbody)){
+                      body = snaketurnupleft;
+                    }
+                    else if((ytail<ybody && xtail == xbody && yhead==ybody && xhead < xbody)|| (yhead<ybody && xhead == xbody && ytail==ybody && xtail < xbody)){
+                      body = snaketurndownright;
+                    }
+                    else if((ytail>ybody && xtail == xbody && yhead==ybody && xhead < xbody)|| (yhead>ybody && xhead == xbody && ytail==ybody && xtail < xbody)){
+                      body = snaketurnupright;
+                    }
+                    else if((ytail<ybody && xtail == xbody && yhead==ybody && xhead > xbody)|| (yhead<ybody && xhead == xbody && ytail==ybody && xtail > xbody)){
+                      body = snaketurndownleft;
+                    }
                     swap_buffer();
                 }
               else{ }
