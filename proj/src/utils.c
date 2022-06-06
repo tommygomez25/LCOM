@@ -1,5 +1,6 @@
 #include <lcom/lcf.h>
 #include <stdint.h>
+#include "utils.h"
 
 uint32_t cnt = 0;
 
@@ -23,4 +24,11 @@ int(util_sys_inb)(int port, uint8_t *value) {
     return 0;
   }
   return 1;
+}
+
+uint16_t convert_2_complement(uint8_t number, uint8_t msb, struct packet * pacote){
+  if (pacote->bytes[0] & msb){
+    return number - 256;
+  }
+  return number;
 }

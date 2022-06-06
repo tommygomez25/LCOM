@@ -1,5 +1,4 @@
 #include "mouse.h"
-#include "utils.h"
 
 int mouse_hook_id = 12;
 uint8_t byte;
