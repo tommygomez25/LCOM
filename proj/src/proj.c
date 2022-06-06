@@ -233,16 +233,16 @@ int(proj_main_loop)() {
 void GeneralInterrupt(Device device) {
   switch (gameState){
     case MAINMENU:
-      MainMenuInterruptHandler(device);
+      //MainMenuInterruptHandler(device);
+      break;
+    case PAUSEMENU:
+      //PauseMenuInterruptHandler(device);
       break;
     case PLAY:
       //PlayInterruptHandler(device);
       break;
     case HELP:
       //HelpMenuInterruptHandler(device);
-      break;
-    case WAITING:
-      //WaitingInterruptHandler(device);
       break;
     case WON:
       //GameWonInterruptHandler(device);
