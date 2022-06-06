@@ -111,4 +111,5 @@ int delete_xpm(xpm_map_t xmap, uint16_t x, uint16_t y){
 
 void swap_buffer() {
  memcpy(video_mem,video_mem_sec,h_res * v_res * (bits_per_pixel+7/8));
+ memset(video_mem_sec,0,h_res * v_res * (bits_per_pixel+7/8));
 }

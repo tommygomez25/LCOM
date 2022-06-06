@@ -15,11 +15,11 @@ int main(int argc, char *argv[]) {
 
   // enables to log function invocations that are being "wrapped" by LCF
   // [comment this out if you don't want/need it]
-  lcf_trace_calls("/home/lcom/proj/trace.txt");
+  lcf_trace_calls("/home/lcom/proj/src/trace.txt");
 
   // enables to save the output of printf function calls on a file
   // [comment this out if you don't want/need it]
-  lcf_log_output("/home/lcom/proj/output.txt");
+  lcf_log_output("/home/lcom/proj/src/output.txt");
 
   // handles control over to LCF
   // [LCF handles command line arguments and invokes the right function]
@@ -35,22 +35,44 @@ int main(int argc, char *argv[]) {
 
 int(proj_main_loop)() {
   vg_init(0x115);
-  vg_draw_rectangle(0,0,800,150,0x966F33);
-  
-  int xtail = 360;
-  int ytail = 300;
-  int xbody = 380;
-  int ybody = 300;
-  int xhead = 400;
-  int yhead = 300;
+  int xapple = 600;
+  int yapple = 500;
+  int size = 3;
+
+typedef struct {
+    int x;   
+    int y;    
+    xpm_row_t *xmap; 
+} snakepart;
+snakepart* snake = malloc(50 * sizeof *snake);
+for(int i = 0;i<50;i++){
+  snake[i].xmap = (xpm_row_t*)malloc(sizeof(xpm_row_t*));
+}
+snakepart tail;
+tail.x = 360;
+tail.y = 300;
+tail.xmap = snaketailright;
+snake[0] = tail;
+
+snakepart body;
+body.x = 380;
+body.y = 300;
+body.xmap = snakebodyhorizontal;
+snake[1] = body;
+
+snakepart head;
+head.x = 400;
+head.y = 300;
+head.xmap = snakeheadright;
+snake[2] = head;
+
+  uint8_t previousmove = RIGHT;
   uint8_t bit_no=0;
   int ipc_status,r;
   int irq_tmr;
   int irq_kbd;
-  static xpm_row_t const* body = snakebodyhorizontal;
- static xpm_row_t const* head = snakeheadright;
- static xpm_row_t const* tail = snaketailright;
   message msg;
+  uint8_t gameover = 0;
   if(kbd_subscribe_int(&bit_no) != 0)
       return 1; 
   irq_kbd = BIT(bit_no);
@@ -58,7 +80,7 @@ int(proj_main_loop)() {
   if(timer_subscribe_int(&bit_no) != 0)
     return 1;
   irq_tmr = BIT(bit_no);
-  while(last!=ESC) {
+  while(last!=ESC && gameover!=1) {
     if( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) {
       printf("driver_receive failed with: %d", r);
       continue;
@@ -72,72 +94,137 @@ int(proj_main_loop)() {
           if(msg.m_notify.interrupts & irq_tmr){
             timer_int_handler();
                if((COUNTER % 1)==0){
-                    get_xpm(grass,0,150);
-                    get_xpm(tail,  xtail,  ytail);
-                    get_xpm(body,  xbody,  ybody);
-                    get_xpm(head,  xhead,  yhead);
-                    int x = 20;
-                    
-                     xtail=xbody;
-                     ytail=ybody;
-                     xbody=xhead;
-                     ybody=yhead;
-                     if(ytail==ybody){
-                      if(xtail>xbody){
-                        tail=snaketailleft;
-                      }
-                      else{
-                        tail=snaketailright;
-                      }
-                     
-                    }
-                    else{
-                      if(ytail>ybody){
-                        tail=snaketailup;
-                      }
-                      else{
-                        tail=snaketaildown;
-                      }
-                      
-                    }  
-                    if(last==UP){
-                      head=snakeheadup;
-                      yhead-=x;
-                    }  
-                    else if(last==DOWN){
-                      head=snakeheaddown;
-                      yhead+=x;
+                 if(snake[size-1].x == xapple && snake[size-1].y == yapple){
+                   snake[size]=snake[size-1];
+                   if(last==UP){
+                     snake[size].y-=20;
+                     snake[size-1].xmap = snakebodyvertical;
+                   }
+                   else if(last==DOWN){
+                     snake[size].y+=20;
+                     snake[size-1].xmap= snakebodyvertical;
+                   }
+                   else if(last==LEFT){
+                     snake[size].x-=20;
+                     snake[size-1].xmap= snakebodyhorizontal;
+                   }
+                   else{
+                     snake[size].x+=20;
+                     snake[size-1].xmap= snakebodyhorizontal;
+                   }
 
+                   size++;
+                   xapple = (rand() % 40) * 20;
+                   yapple = ((rand() % 22)+8) *20;
+
+                 }
+                    vg_draw_rectangle(0,0,800,150,0x966F33);
+                    get_xpm(grass,0,150);
+                    get_xpm(apple,xapple,yapple);
+                    for(int i = 0;i<size;i++){
+                       get_xpm(snake[i].xmap, snake[i].x, snake[i].y);
+
+                      if(i<size-1){
+                        snake[i].x = snake[i+1].x;
+                        snake[i].y = snake[i+1].y;
+                      }
                     }
-                    else if(last==RIGHT){
-                      head=snakeheadright;
-                      xhead+=x;
-                      
+                      if(snake[0].y==snake[1].y){
+                        if(snake[0].x>snake[1].x){
+                          snake[0].xmap=snaketailleft;
+                        }
+                        else{
+                          snake[0].xmap=snaketailright;
+                        }
+                     
+                      }
+                      else{
+                        if(snake[0].y>snake[1].y){
+                          snake[0].xmap=snaketailup;
+                        }
+                        else{
+                          snake[0].xmap=snaketaildown;
+                        }
+                      }
+
+                      int speed = 20;
+                    
+                    
+                      if(last==UP && previousmove!=DOWN){
+                        snake[size-1].xmap=snakeheadup;
+                        snake[size-1].y-=speed;
+                        previousmove = UP;
+                      }  
+                      else if(last==DOWN && previousmove!=UP){
+                        snake[size-1].xmap=snakeheaddown;
+                        snake[size-1].y+=speed;
+                        previousmove = DOWN;
+                      }
+                      else if(last==RIGHT && previousmove!=LEFT){
+                        snake[size-1].xmap=snakeheadright;
+                        snake[size-1].x+=speed;
+                        previousmove = RIGHT;
+
+                      }
+                      else if(last==LEFT && previousmove!=RIGHT){
+                        snake[size-1].xmap=snakeheadleft;
+                        snake[size-1].x-=speed;
+                        previousmove = LEFT;
+
+                      }  
+                      else{
+                        if(previousmove==UP){
+                          snake[size-1].xmap=snakeheadup;
+                          snake[size-1].y-=speed;
+                          previousmove = UP;
+                        }  
+                        else if(previousmove==DOWN){
+                          snake[size-1].xmap=snakeheaddown;
+                          snake[size-1].y+=speed;
+                          previousmove = DOWN;
+                        }
+                        else if(previousmove==RIGHT){
+                          snake[size-1].xmap=snakeheadright;
+                          snake[size-1].x+=speed;
+                          previousmove = RIGHT;
+                        }
+                        else if(previousmove==LEFT){
+                          snake[size-1].xmap=snakeheadleft;
+                          snake[size-1].x-=speed;
+                          previousmove = LEFT;
+                        } 
+                      }              
+                    for(int i = 1;i<size-1;i++){
+                      if((snake[i-1].x>snake[i].x && snake[i].x>snake[i+1].x) || (snake[i-1].x<snake[i].x && snake[i].x<snake[i+1].x)){
+                        snake[i].xmap = snakebodyhorizontal;
+                      }
+                      else if((snake[i-1].y>snake[i].y && snake[i].y>snake[i+1].y) || (snake[i-1].y<snake[i].y && snake[i].y<snake[i+1].y)){
+                        snake[i].xmap = snakebodyvertical;
+                      }
+                      else if((snake[i-1].y>snake[i].y && snake[i-1].x == snake[i].x && snake[i+1].y==snake[i].y && snake[i+1].x > snake[i].x)|| (snake[i+1].y>snake[i].y && snake[i+1].x == snake[i].x && snake[i-1].y==snake[i].y && snake[i-1].x > snake[i].x)){
+                        snake[i].xmap = snaketurnupleft;
+                      }
+                      else if((snake[i-1].y<snake[i].y && snake[i-1].x == snake[i].x && snake[i+1].y==snake[i].y && snake[i+1].x < snake[i].x)|| (snake[i+1].y<snake[i].y && snake[i+1].x == snake[i].x && snake[i-1].y==snake[i].y && snake[i-1].x < snake[i].x)){
+                        snake[i].xmap = snaketurndownright;
+                      }
+                      else if((snake[i-1].y>snake[i].y && snake[i-1].x == snake[i].x && snake[i+1].y==snake[i].y && snake[i+1].x < snake[i].x)|| (snake[i+1].y>snake[i].y && snake[i+1].x == snake[i].x && snake[i-1].y==snake[i].y && snake[i-1].x < snake[i].x)){
+                        snake[i].xmap = snaketurnupright;
+                      }
+                      else if((snake[i-1].y<snake[i].y && snake[i-1].x == snake[i].x && snake[i+1].y==snake[i].y && snake[i+1].x > snake[i].x)|| (snake[i+1].y<snake[i].y && snake[i+1].x == snake[i].x && snake[i-1].y==snake[i].y && snake[i-1].x > snake[i].x)){
+                        snake[i].xmap = snaketurndownleft;
+                      }
                     }
-                    else if(last==LEFT){
-                      head=snakeheadleft;
-                      xhead-=x;
-                    }  
-                    if((xtail>xbody && xbody>xhead) || (xtail<xbody && xbody<xhead)){
-                      body = snakebodyhorizontal;
+                    if(snake[size-1].x>800 || snake[size-1].x < 0 || snake[size-1].y<150 || snake[size-1].y>600){
+                      gameover=1;
                     }
-                    else if((ytail>ybody && ybody>yhead) || (ytail<ybody && ybody<yhead)){
-                      body = snakebodyvertical;
+                    for(int i = 0;i<size-2;i++){
+                      if(snake[i].x==snake[size-1].x && snake[i].y==snake[size-1].y){
+                        gameover=1;
+                        break;
+                      }
                     }
-                    else if((ytail>ybody && xtail == xbody && yhead==ybody && xhead > xbody)|| (yhead>ybody && xhead == xbody && ytail==ybody && xtail > xbody)){
-                      body = snaketurnupleft;
-                    }
-                    else if((ytail<ybody && xtail == xbody && yhead==ybody && xhead < xbody)|| (yhead<ybody && xhead == xbody && ytail==ybody && xtail < xbody)){
-                      body = snaketurndownright;
-                    }
-                    else if((ytail>ybody && xtail == xbody && yhead==ybody && xhead < xbody)|| (yhead>ybody && xhead == xbody && ytail==ybody && xtail < xbody)){
-                      body = snaketurnupright;
-                    }
-                    else if((ytail<ybody && xtail == xbody && yhead==ybody && xhead > xbody)|| (yhead<ybody && xhead == xbody && ytail==ybody && xtail > xbody)){
-                      body = snaketurndownleft;
-                    }
-                    swap_buffer();
-                }
+              swap_buffer();
+              }
               else{ }
 
           }
@@ -148,6 +235,7 @@ int(proj_main_loop)() {
     }
     else {}
   }
+  free(snake);
   timer_unsubscribe_int();
   kbd_unsubscribe_int();
   vg_exit();

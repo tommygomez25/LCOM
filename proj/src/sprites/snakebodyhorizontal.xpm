@@ -31,9 +31,9 @@ static xpm_row_t const snakebodyhorizontal[] = {
 "8 c #73B571",
 "9 c #73B671",
 /* pixels */
+"                    ",
 "....................",
-"....................",
-"....................",
+"XXXXXXXXXXXXXXXXXXXX",
 "XXXXXXXXXXXXXXXXXXXX",
 "OOOOOOOOOOOOOOOOOOOO",
 "OOOOOOOOOOOOOOOOOOOO",
@@ -50,5 +50,5 @@ static xpm_row_t const snakebodyhorizontal[] = {
 "OOOOOOOOOOOOOOOOOOOO",
 "oooooooooooooooooooo",
 "....................",
-"...................."
+"                    "
 };

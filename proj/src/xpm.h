@@ -14,7 +14,7 @@
 #include "../src/sprites/snaketurnupleft.xpm"
 #include "../src/sprites/snaketurndownleft.xpm"
 #include "../src/sprites/snaketurndownright.xpm"
-
+#include "../src/sprites/apple.xpm"
 
 
 
