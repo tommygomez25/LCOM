@@ -1,5 +1,5 @@
 /* XPM */
-static xpm_row_t const grass[] = {
+static xpm_row_t const grass_xpm[] = {
 /* columns rows colors chars-per-pixel */
 "800 450 148 2 ",
 "   c #7D9604",

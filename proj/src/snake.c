@@ -1,6 +1,7 @@
 #include "snake.h"
 
 snakepart *snake;
+int size= 3;
 
 void(create_snake)() {
   snake = malloc(50 * sizeof *snake);
@@ -38,28 +39,40 @@ void(create_snake_head)() {
   snake[2] = head;
 }
 
-void(check_snake_apple_collision)(uint8_t last,int *size,apple* apple1) {
+void(draw_snake)() {
+  for (int i = 0; i < size; i++) {
+    get_xpm(snake[i].xmap, snake[i].x, snake[i].y);
 
-  if (snake[*size - 1].x == apple1->x && snake[*size - 1].y == apple1->y) {
-    snake[*size] = snake[*size - 1];
+    /* if is body */
+    if (i < size - 1) {
+      snake[i].x = snake[i + 1].x;
+      snake[i].y = snake[i + 1].y;
+    }
+  }
+}
+
+void(check_snake_apple_collision)(uint8_t last, apple *apple1) {
+
+  if (snake[size - 1].x == apple1->x && snake[size - 1].y == apple1->y) {
+    snake[size] = snake[size - 1];
     if (last == UP) {
-      snake[*size].y -= 20;
-      snake[*size - 1].xmap = snakebodyvertical;
+      snake[size].y -= 20;
+      snake[size - 1].xmap = snakebodyvertical;
     }
     else if (last == DOWN) {
-      snake[*size].y += 20;
-      snake[*size - 1].xmap = snakebodyvertical;
+      snake[size].y += 20;
+      snake[size - 1].xmap = snakebodyvertical;
     }
     else if (last == LEFT) {
-      snake[*size].x -= 20;
-      snake[*size - 1].xmap = snakebodyhorizontal;
+      snake[size].x -= 20;
+      snake[size - 1].xmap = snakebodyhorizontal;
     }
     else {
-      snake[*size].x += 20;
-      snake[*size - 1].xmap = snakebodyhorizontal;
+      snake[size].x += 20;
+      snake[size - 1].xmap = snakebodyhorizontal;
     }
 
-    (*size)++;
+    (size)++;
     apple1->x = (rand() % 40) * 20;
     apple1->y = ((rand() % 22) + 8) * 20;
   }

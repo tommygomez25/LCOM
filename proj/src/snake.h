@@ -31,5 +31,9 @@ void (create_snake_body)();
 
 void (create_snake_head)();
 
-void (check_snake_apple_collision)(uint8_t last,int *size,apple* apple1);
+void (draw_snake)();
+
+void (check_snake_apple_collision)(uint8_t last,apple* apple1);
+
+
 

@@ -3,7 +3,7 @@ PROG=proj
 
 # source code files to be compiled
 
-SRCS = proj.c video_gr.c keyboard.c utils.c timer.c snake.c apple.c
+SRCS = proj.c video_gr.c keyboard.c utils.c timer.c snake.c apple.c grass.c menu.c
 
 
 # additional compilation flags
