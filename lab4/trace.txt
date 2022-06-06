@@ -1,0 +1,22 @@
+@lcflib.a:2019, lcf_start
+  mouse_test_packet(cnt)
+> mouse_test_packet(1)
+  @mouse.c:8, m_subscribe_int
+    sys_irqsetpolicy(12, IRQ_REENABLE|IRQ_EXCLUSIVE, &hook_id)
+  > sys_irqsetpolicy(12, 3, addr: 0x822d268 [0])
+  < sys_irqsetpolicy(12, 3, addr: 0x822d268 [10]) -> (ret: 0)
+  @lab4.c:34, mouse_test_packet
+    mouse_enable_data_reporting()
+  @lab4.c:41, mouse_test_packet
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff6c0, addr: 0xeffff708)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab4.c:49, mouse_test_packet
+    mouse_ih()
+    @utils.c:21, util_sys_inb
+      sys_inb(port, &val)
+    > sys_inb(0x64, addr: 0xeffff5e8)
+    < sys_inb(0x64, addr: 0xeffff5e8 [0x1c = 0b00011100])
+  @lab4.c:41, mouse_test_packet
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff6c0, addr: 0xeffff708)

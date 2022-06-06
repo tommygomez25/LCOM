@@ -11,6 +11,7 @@ static unsigned v_res;	        /* Vertical resolution in pixels */
 static unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
 extern uint32_t COUNTER;
 
+
 int (vbe_get_info)(uint16_t mode, vbe_mode_info_t * mode_info) {
   lm_alloc(sizeof(vbe_mode_info_t), &mem_map);
   reg86_t reg;
@@ -32,6 +33,7 @@ int (vbe_get_info)(uint16_t mode, vbe_mode_info_t * mode_info) {
 void *(vg_init)(uint16_t mode){
   vbe_mode_info_t vmi;
   vbe_get_info(mode, &vmi);
+  
   h_res = vmi.XResolution;
   v_res = vmi.YResolution;
   bits_per_pixel = vmi.BitsPerPixel;
@@ -104,8 +106,6 @@ void draw_xpm(uint8_t *map, xpm_image_t * img, uint16_t x, uint16_t y){
     }
   }
 }
-
-
 int get_xpm(xpm_map_t xmap, uint16_t x, uint16_t y){
   uint8_t *map;
   xpm_image_t img;

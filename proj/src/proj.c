@@ -35,6 +35,7 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
+
 extern snakepart* snake;
 extern apple* apple1;
 
