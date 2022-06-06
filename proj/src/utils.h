@@ -38,8 +38,8 @@ int (util_get_MSB)(uint16_t val, uint8_t *msb);
  * @return Return 0 upon success and non-zero otherwise
  */
 int (util_sys_inb)(int port, uint8_t *value);//
-// Created by ganha on 19/03/2022.
-//
+
+uint16_t convert_2_complement(uint8_t number, uint8_t msb, struct packet * pacote);
 
 #ifndef LAB2_UTILS_H
 #define LAB2_UTILS_H

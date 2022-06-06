@@ -1,7 +1,7 @@
 #include "mouse.h"
 
 int mouse_hook_id = 12;
-uint8_t byte;
+uint8_t scancode;
 
 int (mouse_subscribe_int)(uint8_t *bit_no){
     *bit_no = (uint8_t) mouse_hook_id;
@@ -32,15 +32,15 @@ void (mouse_ih)() {
         }
 
         if (stat & (ST_PAR_ERR | ST_TO_ERR)){
-            byte = 0;
+            scancode = 0;
         }
 
         else {
-            byte = output;
+            scancode = output;
             return;}
     }
 
-    byte = 0;
+    scancode = 0;
 }
 
 void (buildPacket)(struct packet * pacote) {

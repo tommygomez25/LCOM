@@ -1,7 +1,12 @@
 #include <lcom/lcf.h>
 
 #define KBD_IRQ 1
+#define MOUSE_IRQ 12
+
+
 #define DELAY_US 20000
+
+/* Keyboard*/
 #define ESC 0x81
 #define UP 0x11 
 #define DOWN 0x1F    
@@ -27,6 +32,23 @@
 /*Command*/
 #define WRITE_COMMAND 0x60
 #define COMMAND_BYTE_INTERRUPT_KB BIT(0)
+
+/* Command Byte */
+#define KBC_ST_REG 0x64
+#define KBC_CMD_REG 0x64
+
+/* KBC Time out */
+#define KBC_WAIT 10000
+
+/* KBD Commands */
+#define READ_CMD_BYTE 0x20
+#define WRITE_CMD_BYTE 0x60
+
+/* KBD Command Byte */
+#define CMD_BYTE_DISABLE_MOUSE BIT(5)
+#define CMD_BYTE_DISABLE_KBD_INTERFACE BIT(4)
+#define CMD_BYTE_ENABLE_INT_MOUSE BIT(1)
+#define CMD_BYTE_ENABLE_INT_KBD BIT(0)
 
 /* Mouse */
 #define LB BIT(0)

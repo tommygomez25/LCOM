@@ -9,10 +9,10 @@
 #include "keyboard.h"
 #include "snake.h"
 #include "video_gr.h"
+#include "mouse.h"
 #include "menu.h"
+#include "proj.h"
 
-extern uint8_t last;
-extern uint32_t COUNTER;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -38,6 +38,14 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
+extern uint8_t last; /* keyboard */
+extern uint32_t COUNTER; /* timer */
+extern uint8_t scancode; /* mouse */
+
+struct packet pack;
+
+GameState gameState = MAINMENU;
+
 extern snakepart *snake;
 extern apple *apple1;
 extern int size;
@@ -51,17 +59,21 @@ int(proj_main_loop)() {
   uint8_t previousmove = RIGHT;
   
   int ipc_status, r;
-  int irq_tmr;
-  int irq_kbd;
+  message msg;
 
   uint8_t timer_bit_no, kbd_bit_no, mouse_bit_no;
-  message msg;
-  uint8_t gameover = 0;
+
   if (kbd_subscribe_int(&kbd_bit_no) != 0) {return 1;}
   if (timer_subscribe_int(&timer_bit_no) != 0) {return 1;}
+  if (mouse_subscribe_int(&mouse_bit_no) != 0) {return 1;}
   
-  irq_kbd = BIT(kbd_bit_no);
-  irq_tmr = BIT(timer_bit_no);
+  int irq_kbd = BIT(kbd_bit_no);
+  int irq_tmr = BIT(timer_bit_no);
+  int irq_mouse = BIT(mouse_bit_no);
+
+  uint8_t gameover = 0;
+  bool MouseReadSecond = false, MouseReadThird = false;
+  uint8_t ms_bytes[3]; /* to store mouse bytes */
 
   loadMainMenu();
 
@@ -75,6 +87,28 @@ int(proj_main_loop)() {
         case HARDWARE:
           if (msg.m_notify.interrupts & irq_kbd) {
             kbc_ih();
+            GeneralInterrupt(KEYBOARD);
+          }
+          if (msg.m_notify.interrupts & irq_mouse){
+            mouse_ih();
+            if (!MouseReadSecond && !MouseReadThird && (scancode & BIT(3))){
+              ms_bytes[0] = scancode;
+              MouseReadSecond = true;
+            }
+            else if (MouseReadSecond){
+              ms_bytes[1] = scancode;
+              MouseReadThird = true;
+              MouseReadSecond = false;
+            }
+            else if (MouseReadThird){
+              ms_bytes[2] = scancode;
+              MouseReadThird = false;
+              for (unsigned int i = 0; i < 3;i++){
+                pack.bytes[i] = ms_bytes[i];
+              }
+              buildPacket(&pack);
+              GeneralInterrupt(MOUSE);
+            }
           }
           if (msg.m_notify.interrupts & irq_tmr) {
             timer_int_handler();
@@ -193,4 +227,30 @@ int(proj_main_loop)() {
   kbd_unsubscribe_int();
   vg_exit();
   return 1;
+}
+
+
+void GeneralInterrupt(Device device) {
+  switch (gameState){
+    case MAINMENU:
+      MainMenuInterruptHandler(device);
+      break;
+    case PLAY:
+      //PlayInterruptHandler(device);
+      break;
+    case HELP:
+      //HelpMenuInterruptHandler(device);
+      break;
+    case WAITING:
+      //WaitingInterruptHandler(device);
+      break;
+    case WON:
+      //GameWonInterruptHandler(device);
+      break;
+    case LOST:
+      //GameLostInterruptHandler(device);
+      break;
+    case EXIT:
+      break;
+  }
 }
