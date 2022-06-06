@@ -27,3 +27,25 @@
 /*Command*/
 #define WRITE_COMMAND 0x60
 #define COMMAND_BYTE_INTERRUPT_KB BIT(0)
+
+/* Mouse */
+#define LB BIT(0)
+#define RB BIT(1)
+#define MB BIT(2)
+#define MSB_X_DELTA BIT(4)
+#define MSB_Y_DELTA BIT(5)
+#define X_OVFL BIT(6)
+#define Y_OVFL BIT(7)
+
+#define DIS_MOUSE 0xA7
+#define WRITE_BYTE_MOUSE 0xD4
+#define DIS_DATA_REP 0xF5
+#define ENA_DATA_REP 0xF4
+#define STREAM_MODE 0xEA
+#define REMOTE_MODE 0xF0
+#define READ_DATA 0xEB
+
+/* Mouse Controller command responses */
+#define ACK 0xFA   //Acknowledged command or argument
+#define NACK 0xFE  //Invalid byte
+#define ERROR 0xFC //Second consecutive invalid byte
