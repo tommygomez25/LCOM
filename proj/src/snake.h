@@ -14,6 +14,8 @@
 #include "sprites/snaketurndownright.xpm"
 #include "sprites/snaketurnupleft.xpm"
 #include "sprites/snaketurnupright.xpm"
+#include "i8042.h"
+#include "apple.h"
 
 typedef struct {
     int x;   
@@ -28,4 +30,6 @@ void (create_snake_tail)();
 void (create_snake_body)();
 
 void (create_snake_head)();
+
+void (check_snake_apple_collision)(uint8_t last,int *size,apple* apple1);
 

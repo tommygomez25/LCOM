@@ -1,5 +1,6 @@
 #pragma once
 #include <lcom/lcf.h>
+#include "video_gr.h"
 #include "sprites/apple.xpm"
 
 typedef struct {
@@ -9,3 +10,5 @@ typedef struct {
 } apple;
 
 void (create_apple)();
+
+void (draw_apple)();
