@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
   <component name="ProjectRootManager">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
-=======
-  <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$" />
->>>>>>> 497ceeb0ebfbf98e50ffa0edcc2d5b9d906975d3
 </project>

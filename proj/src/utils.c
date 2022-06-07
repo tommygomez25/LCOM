@@ -32,3 +32,4 @@ uint16_t convert_2_complement(uint8_t number, uint8_t msb, struct packet * pacot
   }
   return number;
 }
+

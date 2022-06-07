@@ -6,9 +6,9 @@
 static char *video_mem;		/* Process (virtual) address to which VRAM is mapped */
 static char *video_mem_sec;
 static mmap_t mem_map;
-static unsigned h_res;	        /* Horizontal resolution in pixels */
-static unsigned v_res;	        /* Vertical resolution in pixels */
-static unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
+unsigned h_res;	        /* Horizontal resolution in pixels */
+unsigned v_res;	        /* Vertical resolution in pixels */
+unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
 extern uint32_t COUNTER;
 
 

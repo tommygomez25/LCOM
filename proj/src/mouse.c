@@ -2,6 +2,8 @@
 
 int mouse_hook_id = 12;
 uint8_t scancode;
+extern unsigned h_res;	        /* Horizontal resolution in pixels */
+extern unsigned v_res;	        /* Vertical resolution in pixels */
 
 int (mouse_subscribe_int)(uint8_t *bit_no){
     *bit_no = (uint8_t) mouse_hook_id;
@@ -98,4 +100,67 @@ int (mouse_disable_data_reporting)() {
         tickdelay(micros_to_ticks(20000));
     }
     return 1;
+}
+
+Cursor *cursor;
+
+Cursor * create_cursor() {
+  cursor = (Cursor *) malloc(sizeof(Cursor));
+  cursor->x = 30;
+  cursor->y = 30;
+
+  return cursor;
+}
+
+void draw_cursor(){
+    get_xpm(cursor_xpm,cursor->x,cursor->y);
+}
+
+void clean_cursor() {
+    delete_xpm(cursor_xpm,cursor->x,cursor->y);
+}
+
+void mouse_update(struct packet * pacote) {
+
+  clean_cursor();
+
+  if (pacote->delta_x > 0) {
+    if (cursor->x + pacote->delta_x > (int)h_res - cursor->img.width)
+      cursor->x = (int)h_res - cursor->img.width;
+    else
+      cursor->x += pacote->delta_x;
+  }
+  else if (pacote->delta_x < 0) {
+    if (cursor->x + pacote->delta_x < 0)
+      cursor->x = 0;
+    else
+      cursor->x += pacote->delta_x;
+  }
+  if (pacote->delta_y < 0) {
+    if (cursor->y + cursor->img.height - pacote->delta_y > (int)v_res)
+      cursor->y = (int)v_res - cursor->img.height;
+    else
+      cursor->y -= pacote->delta_y;
+  }
+  else if (pacote->delta_y > 0) {
+    if (cursor->y - pacote->delta_y < 0)
+      cursor->y = 0;
+    else
+      cursor->y -= pacote->delta_y;
+  }
+
+  draw_cursor();
+
+}
+
+
+unsigned int check_collision_main_menu () {
+  if (cursor->x > 112 && cursor->x < 432 && cursor->y > 100 && cursor->y <200){ // Play
+      printf("olaaaaaa111");
+    return 1;}
+  else if (cursor->x > 112 && cursor->x < 432 && cursor->y > 200  && cursor->y < 300) // Scoreboard
+    return 2;  
+  else if (cursor->x > 112 && cursor->x < 432 && cursor->y > 400 && cursor->y < 500)  // Exit
+    return 3;
+  else return 0;
 }

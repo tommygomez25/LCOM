@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
@@ -8,6 +7,3 @@
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
-=======
-<module classpath="CMake" type="CPP_MODULE" version="4" />
->>>>>>> 497ceeb0ebfbf98e50ffa0edcc2d5b9d906975d3

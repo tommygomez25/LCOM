@@ -1,18 +1,16 @@
-
 #include <lcom/lcf.h>
+#include <lcom/liblm.h>
+#include <lcom/proj.h>
+
+#include <stdbool.h>
 #include <stdint.h>
-#include <stdio.h>
 
-#include "apple.h"
-#include "grass.h"
-#include "i8042.h"
-#include "keyboard.h"
-#include "snake.h"
 #include "video_gr.h"
-#include "mouse.h"
+#include "i8042.h"
+#include "i8254.h"
+#include "keyboard.h"
 #include "menu.h"
-#include "proj.h"
-
+#include "game.h"
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -38,219 +36,12 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-extern uint8_t last; /* keyboard */
-extern uint32_t COUNTER; /* timer */
-extern uint8_t scancode; /* mouse */
-
-struct packet pack;
-
-GameState gameState = MAINMENU;
-
-extern snakepart *snake;
-extern apple *apple1;
-extern int size;
-
 int(proj_main_loop)() {
-  vg_init(0x115);
+  if (vg_init(0x115) != 0) {return 1;}
 
-  create_apple();
-  create_snake();
+  if (game_main_loop() != 0) {return 1;}
 
-  uint8_t previousmove = RIGHT;
-  
-  int ipc_status, r;
-  message msg;
-
-  uint8_t timer_bit_no, kbd_bit_no, mouse_bit_no;
-
-  if (kbd_subscribe_int(&kbd_bit_no) != 0) {return 1;}
-  if (timer_subscribe_int(&timer_bit_no) != 0) {return 1;}
-  if (mouse_subscribe_int(&mouse_bit_no) != 0) {return 1;}
-  
-  int irq_kbd = BIT(kbd_bit_no);
-  int irq_tmr = BIT(timer_bit_no);
-  int irq_mouse = BIT(mouse_bit_no);
-
-  uint8_t gameover = 0;
-  bool MouseReadSecond = false, MouseReadThird = false;
-  uint8_t ms_bytes[3]; /* to store mouse bytes */
-
-  loadMainMenu();
-
-  while (last != ESC && gameover != 1) {
-    if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
-      printf("driver_receive failed with: %d", r);
-      continue;
-    }
-    if (is_ipc_notify(ipc_status)) {
-      switch (_ENDPOINT_P(msg.m_source)) {
-        case HARDWARE:
-          if (msg.m_notify.interrupts & irq_kbd) {
-            kbc_ih();
-            GeneralInterrupt(KEYBOARD);
-          }
-          if (msg.m_notify.interrupts & irq_mouse){
-            mouse_ih();
-            if (!MouseReadSecond && !MouseReadThird && (scancode & BIT(3))){
-              ms_bytes[0] = scancode;
-              MouseReadSecond = true;
-            }
-            else if (MouseReadSecond){
-              ms_bytes[1] = scancode;
-              MouseReadThird = true;
-              MouseReadSecond = false;
-            }
-            else if (MouseReadThird){
-              ms_bytes[2] = scancode;
-              MouseReadThird = false;
-              for (unsigned int i = 0; i < 3;i++){
-                pack.bytes[i] = ms_bytes[i];
-              }
-              buildPacket(&pack);
-              GeneralInterrupt(MOUSE);
-            }
-          }
-          if (msg.m_notify.interrupts & irq_tmr) {
-            timer_int_handler();
-            if ((COUNTER % 1) == 0) {
-              check_snake_apple_collision(last, apple1);
-              // vg_draw_rectangle(0, 0, 800, 150, 0x966F33);
-              // draw_grass();
-              // draw_apple();
-              // draw_snake();
-              if (snake[0].y == snake[1].y) {
-                if (snake[0].x > snake[1].x) {
-                  snake[0].xmap = snaketailleft;
-                }
-                else {
-                  snake[0].xmap = snaketailright;
-                }
-              }
-              else {
-                if (snake[0].y > snake[1].y) {
-                  snake[0].xmap = snaketailup;
-                }
-                else {
-                  snake[0].xmap = snaketaildown;
-                }
-              }
-
-              int speed = 20;
-
-              if (last == UP && previousmove != DOWN) {
-                snake[size - 1].xmap = snakeheadup;
-                snake[size - 1].y -= speed;
-                previousmove = UP;
-              }
-              else if (last == DOWN && previousmove != UP) {
-                snake[size - 1].xmap = snakeheaddown;
-                snake[size - 1].y += speed;
-                previousmove = DOWN;
-              }
-              else if (last == RIGHT && previousmove != LEFT) {
-                snake[size - 1].xmap = snakeheadright;
-                snake[size - 1].x += speed;
-                previousmove = RIGHT;
-              }
-              else if (last == LEFT && previousmove != RIGHT) {
-                snake[size - 1].xmap = snakeheadleft;
-                snake[size - 1].x -= speed;
-                previousmove = LEFT;
-              }
-              else {
-                if (previousmove == UP) {
-                  snake[size - 1].xmap = snakeheadup;
-                  snake[size - 1].y -= speed;
-                  previousmove = UP;
-                }
-                else if (previousmove == DOWN) {
-                  snake[size - 1].xmap = snakeheaddown;
-                  snake[size - 1].y += speed;
-                  previousmove = DOWN;
-                }
-                else if (previousmove == RIGHT) {
-                  snake[size - 1].xmap = snakeheadright;
-                  snake[size - 1].x += speed;
-                  previousmove = RIGHT;
-                }
-                else if (previousmove == LEFT) {
-                  snake[size - 1].xmap = snakeheadleft;
-                  snake[size - 1].x -= speed;
-                  previousmove = LEFT;
-                }
-              }
-              for (int i = 1; i < size - 1; i++) {
-                if ((snake[i - 1].x > snake[i].x && snake[i].x > snake[i + 1].x) || (snake[i - 1].x < snake[i].x && snake[i].x < snake[i + 1].x)) {
-                  snake[i].xmap = snakebodyhorizontal;
-                }
-                else if ((snake[i - 1].y > snake[i].y && snake[i].y > snake[i + 1].y) || (snake[i - 1].y < snake[i].y && snake[i].y < snake[i + 1].y)) {
-                  snake[i].xmap = snakebodyvertical;
-                }
-                else if ((snake[i - 1].y > snake[i].y && snake[i - 1].x == snake[i].x && snake[i + 1].y == snake[i].y && snake[i + 1].x > snake[i].x) || (snake[i + 1].y > snake[i].y && snake[i + 1].x == snake[i].x && snake[i - 1].y == snake[i].y && snake[i - 1].x > snake[i].x)) {
-                  snake[i].xmap = snaketurnupleft;
-                }
-                else if ((snake[i - 1].y < snake[i].y && snake[i - 1].x == snake[i].x && snake[i + 1].y == snake[i].y && snake[i + 1].x < snake[i].x) || (snake[i + 1].y < snake[i].y && snake[i + 1].x == snake[i].x && snake[i - 1].y == snake[i].y && snake[i - 1].x < snake[i].x)) {
-                  snake[i].xmap = snaketurndownright;
-                }
-                else if ((snake[i - 1].y > snake[i].y && snake[i - 1].x == snake[i].x && snake[i + 1].y == snake[i].y && snake[i + 1].x < snake[i].x) || (snake[i + 1].y > snake[i].y && snake[i + 1].x == snake[i].x && snake[i - 1].y == snake[i].y && snake[i - 1].x < snake[i].x)) {
-                  snake[i].xmap = snaketurnupright;
-                }
-                else if ((snake[i - 1].y < snake[i].y && snake[i - 1].x == snake[i].x && snake[i + 1].y == snake[i].y && snake[i + 1].x > snake[i].x) || (snake[i + 1].y < snake[i].y && snake[i + 1].x == snake[i].x && snake[i - 1].y == snake[i].y && snake[i - 1].x > snake[i].x)) {
-                  snake[i].xmap = snaketurndownleft;
-                }
-              }
-              if (snake[size - 1].x > 800 || snake[size - 1].x < 0 || snake[size - 1].y < 150 || snake[size - 1].y > 600) {
-                gameover = 1;
-              }
-              for (int i = 0; i < size - 2; i++) {
-                if (snake[i].x == snake[size - 1].x && snake[i].y == snake[size - 1].y) {
-                  //gameover = 1;
-                  break;
-                }
-              }
-              swap_buffer();
-            }
-            else {
-            }
-          }
-          break;
-        default:
-          break;
-      }
-    }
-    else {
-    }
-  }
-  free(snake);
-  free(apple1);
-  timer_unsubscribe_int();
-  kbd_unsubscribe_int();
-  vg_exit();
+  if (vg_exit() != 0) {return 1;}
   return 1;
 }
 
-
-void GeneralInterrupt(Device device) {
-  switch (gameState){
-    case MAINMENU:
-      //MainMenuInterruptHandler(device);
-      break;
-    case PAUSEMENU:
-      //PauseMenuInterruptHandler(device);
-      break;
-    case PLAY:
-      //PlayInterruptHandler(device);
-      break;
-    case HELP:
-      //HelpMenuInterruptHandler(device);
-      break;
-    case WON:
-      //GameWonInterruptHandler(device);
-      break;
-    case LOST:
-      //GameLostInterruptHandler(device);
-      break;
-    case EXIT:
-      break;
-  }
-}

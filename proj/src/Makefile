@@ -3,12 +3,12 @@ PROG=proj
 
 # source code files to be compiled
 
-SRCS = proj.c video_gr.c keyboard.c utils.c timer.c mouse.c snake.c apple.c grass.c menu.c
+SRCS = proj.c game.c mouse.c apple.c video_gr.c grass.c keyboard.c utils.c snake.c menu.c 
 
 
 # additional compilation flags
 # "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set
-CFLAGS += -pedantic
+CFLAGS += -pedantic -DLCOM_OPTIMIZED
 
 # list of library dependencies (for Lab 2, only LCF library)
 DPADD += ${LIBLCF}

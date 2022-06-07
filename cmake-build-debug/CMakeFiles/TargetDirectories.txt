@@ -1,3 +1,0 @@
-C:/Users/ganha/Documents/LCOM/shared/cmake-build-debug/CMakeFiles/shared.dir
-C:/Users/ganha/Documents/LCOM/shared/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/ganha/Documents/LCOM/shared/cmake-build-debug/CMakeFiles/rebuild_cache.dir

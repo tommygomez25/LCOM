@@ -1,11 +1,7 @@
 {
-<<<<<<< HEAD
     "makefile.extensionOutputFolder": "./.vscode",
     "files.associations": {
         "lcf.h": "c",
         "*.xpm": "c"
     }
-=======
-    "makefile.extensionOutputFolder": "./.vscode"
->>>>>>> 497ceeb0ebfbf98e50ffa0edcc2d5b9d906975d3
 }

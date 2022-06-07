@@ -1,5 +1,6 @@
 #pragma once
 
+
 /** @defgroup utils utils
  * @{
  *
@@ -40,6 +41,7 @@ int (util_get_MSB)(uint16_t val, uint8_t *msb);
 int (util_sys_inb)(int port, uint8_t *value);//
 
 uint16_t convert_2_complement(uint8_t number, uint8_t msb, struct packet * pacote);
+
 
 #ifndef LAB2_UTILS_H
 #define LAB2_UTILS_H
