@@ -123,8 +123,8 @@ Cursor *cursor;
 
 Cursor * create_cursor() {
   cursor = (Cursor *) malloc(sizeof(Cursor));
-  cursor->x = 650;
-  cursor->y = 320;
+  cursor->x = 500;
+  cursor->y = 325;
 
   return cursor;
 }
