@@ -7,4 +7,8 @@
 
 void (loadMainMenu)();
 
+void (draw_main_menu_background)();
+
 void MainMenuInterruptHandler(Device device);
+
+

@@ -14,6 +14,10 @@ void (loadMainMenu)(){
   draw_cursor();
 }
 
+void (draw_main_menu_background)(){
+  get_xpm(menu_xpm,0,0);
+}
+
 void MainMenuInterruptHandler(Device device) {
   static struct mouse_ev * mouseEvent;
   static bool overExit = false, overPlay = false,overScoreboard = false;
@@ -40,6 +44,7 @@ void MainMenuInterruptHandler(Device device) {
           }
           if (!overPlay) {
             overPlay = true;
+            draw_main_menu_background();
             /*
             mainMenuButtons[3]->mouseOver = true;
             add_button_to_background(mainMenuButtons[3]);
@@ -53,6 +58,7 @@ void MainMenuInterruptHandler(Device device) {
           }
           if (!overScoreboard) {
             overScoreboard = true;
+            draw_main_menu_background();
             /*
             mainMenuButtons[0]->mouseOver = true;
             add_button_to_background(mainMenuButtons[0]);
@@ -66,6 +72,7 @@ void MainMenuInterruptHandler(Device device) {
           }
           if (!overExit) {
             overExit = true;
+            draw_main_menu_background();
             /*
             mainMenuButtons[1]->mouseOver = true;
             add_button_to_background(mainMenuButtons[1]);
