@@ -111,7 +111,7 @@ static xpm_row_t const cursor_xpm[] = {
 ";. c #01F901",
 ":. c #00FB01",
 ">. c #00FC01",
-",. c green",
+",. c #008000",
 "<. c #00FE01",
 "1. c #00FF01",
 "2. c #01FF01",

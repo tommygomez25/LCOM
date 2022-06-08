@@ -85,8 +85,25 @@ int(mouse_write_cmd)(uint32_t cmd, uint8_t *resp) {
   return 1;
 }
 
+int (mouse_enable_data_report)() {
+  uint8_t resp;
+  uint8_t seconderror = 0;
 
-int (mouse_disable_data_reporting)() {
+  do {
+    if (sys_outb(KBC_CMD_REG, WRITE_BYTE_MOUSE) != 0) {return 1;} // escreve no porto 0x64 o commando 0xD4 para avisar que quer enviar um comando do rato
+
+    if (mouse_write_cmd(ENA_DATA_REP, &resp) != 0) {return 1;} // escreve o comando 0xF4 , obtendo resposta 
+
+    if (resp == ACK) {return 0;}
+    else if (resp == NACK) {seconderror++;}
+    else if (resp == ERROR){return 1;}
+    
+  } while (seconderror < 2);
+
+  return 1;
+}
+
+int (mouse_disable_data_report)() {
     uint8_t resp;
     uint8_t error = 0;
     while (error < 2) {
@@ -107,7 +124,7 @@ Cursor *cursor;
 Cursor * create_cursor() {
   cursor = (Cursor *) malloc(sizeof(Cursor));
   cursor->x = 30;
-  cursor->y = 30;
+  cursor->y = 20;
 
   return cursor;
 }
@@ -155,12 +172,12 @@ void mouse_update(struct packet * pacote) {
 
 
 unsigned int check_collision_main_menu () {
-  if (cursor->x > 112 && cursor->x < 432 && cursor->y > 100 && cursor->y <200){ // Play
+  if (cursor->x > 300 && cursor->x < 500 && cursor->y > 150 && cursor->y <270){ // Play
       printf("olaaaaaa111");
     return 1;}
-  else if (cursor->x > 112 && cursor->x < 432 && cursor->y > 200  && cursor->y < 300) // Scoreboard
+  else if (cursor->x > 300 && cursor->x < 500 && cursor->y > 300  && cursor->y < 450) // Scoreboard
     return 2;  
-  else if (cursor->x > 112 && cursor->x < 432 && cursor->y > 400 && cursor->y < 500)  // Exit
+  else if (cursor->x > 300 && cursor->x < 500 && cursor->y > 450 && cursor->y <550 )  // Exit
     return 3;
   else return 0;
 }

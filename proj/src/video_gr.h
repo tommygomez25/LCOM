@@ -23,3 +23,5 @@ int delete_xpm(xpm_map_t xmap, uint16_t x, uint16_t y);
 
 void (swap_buffer)();
 
+void (double_buffer)();
+

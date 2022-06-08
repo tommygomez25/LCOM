@@ -9,8 +9,9 @@ extern Cursor * cursor;
 extern GameState gameState;
 
 void (loadMainMenu)(){
-  cursor = create_cursor();
   get_xpm(menu_xpm,0,0);
+  cursor = create_cursor();
+  draw_cursor();
 }
 
 void MainMenuInterruptHandler(Device device) {
@@ -86,7 +87,7 @@ void MainMenuInterruptHandler(Device device) {
       //draw_clock();
       break;
   }
-
+  /*
   if (clickedExit) // Sair
     gameState = EXIT;
   else if (clickedPlay) { // Entrar no modo PLAY
@@ -100,6 +101,6 @@ void MainMenuInterruptHandler(Device device) {
     return;
   }
   //else
-    //return;
+    //return;*/
 }
 

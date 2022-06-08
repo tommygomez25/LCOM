@@ -23,13 +23,17 @@ void (buildPacket)(struct packet * pacote);
 
 int(mouse_write_cmd)(uint32_t cmd, uint8_t *resp);
 
-int (mouse_disable_data_reporting)();
+int (mouse_enable_data_report)();
 
-Cursor * create_cursor();
+int (mouse_disable_data_report)();
 
-void clean_cursor();
+Cursor * (create_cursor)();
 
-void mouse_update(struct packet * pacote);
+void (draw_cursor)();
 
-unsigned int check_collision_main_menu ();
+void (clean_cursor)();
+
+void (mouse_update)(struct packet * pacote);
+
+unsigned int (check_collision_main_menu)();
 

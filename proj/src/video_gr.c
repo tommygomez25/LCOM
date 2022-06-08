@@ -106,6 +106,7 @@ void draw_xpm(uint8_t *map, xpm_image_t * img, uint16_t x, uint16_t y){
     }
   }
 }
+
 int get_xpm(xpm_map_t xmap, uint16_t x, uint16_t y){
   uint8_t *map;
   xpm_image_t img;
@@ -134,4 +135,8 @@ int delete_xpm(xpm_map_t xmap, uint16_t x, uint16_t y){
 void swap_buffer() {
  memcpy(video_mem,video_mem_sec,h_res * v_res * (bits_per_pixel+7/8));
  memset(video_mem_sec,0,h_res * v_res * (bits_per_pixel+7/8));
+}
+
+void (double_buffer)() {
+  memcpy(video_mem, video_mem_sec, v_res * h_res * (bits_per_pixel+7/8));
 }

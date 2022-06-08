@@ -37,6 +37,8 @@ int main(int argc, char *argv[]) {
 }
 
 int(proj_main_loop)() {
+  printf("eae");
+
   if (vg_init(0x115) != 0) {return 1;}
 
   if (game_main_loop() != 0) {return 1;}

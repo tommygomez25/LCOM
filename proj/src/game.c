@@ -16,8 +16,8 @@ extern int size; /* snake size */
 
 int(game_main_loop)() {
 
-  create_apple();
-  create_snake();
+  //create_apple();
+  //create_snake();
 
   // uint8_t previousmove = RIGHT;
 
@@ -32,11 +32,10 @@ int(game_main_loop)() {
   if (timer_subscribe_int(&timer_bit_no) != 0) {
     return 1;
   }
-  if (mouse_subscribe_int(&mouse_bit_no) != 0) {
+  if (mouse_enable_data_report() != 0) {
     return 1;
   }
-
-  if (mouse_enable_data_reporting() != 0) {
+  if (mouse_subscribe_int(&mouse_bit_no) != 0) {
     return 1;
   }
 
@@ -87,7 +86,8 @@ int(game_main_loop)() {
           if (msg.m_notify.interrupts & irq_tmr) {
             timer_int_handler();
             GeneralInterrupt(TIMER);
-            swap_buffer();
+            //swap_buffer();
+            double_buffer();
           }
           break;
         default:
@@ -107,7 +107,7 @@ int(game_main_loop)() {
   if (mouse_unsubscribe_int() != 0) {
     return 1;
   }
-  if (mouse_disable_data_reporting() != 0) {
+  if (mouse_disable_data_report() != 0) {
     return 1;
   }
 
