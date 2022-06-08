@@ -3,19 +3,21 @@
 extern uint8_t scancode;
 extern unsigned int h_res, v_res;
 
+
 struct packet pack;
 
 extern Cursor * cursor;
 extern GameState gameState;
 
 void (loadMainMenu)(){
-  get_xpm(menu_xpm,0,0);
+  xpm_load(menu_xpm,XPM_8_8_8,&background_menu);
   cursor = create_cursor();
+  draw_main_menu_background();
   draw_cursor();
 }
 
 void (draw_main_menu_background)(){
-  get_xpm(menu_xpm,0,0);
+  draw_xpm(background_menu.bytes,&background_menu,0,0);
 }
 
 void MainMenuInterruptHandler(Device device) {
@@ -95,14 +97,16 @@ void MainMenuInterruptHandler(Device device) {
       break;
   }
   
-  if (clickedExit) // Sair
-    gameState = EXIT;
-  /*
+  if (clickedExit) {// Sair
+    gameState = EXIT;}
+  
   else if (clickedPlay) { // Entrar no modo PLAY
     gameState = PLAY;
-    //clean_clock();
-    //LoadSinglePLayer(1,true);
+    loadGame();
+    printf("loaded game\n");
+    return ;
   }
+  
   else if (clickedScoreboard) { // Entrar no Scoreboard
     gameState = SCOREBOARD;
     //draw_help_background();

@@ -4,6 +4,7 @@
 #include "game.h"   
 #include "mouse.h"
 
+xpm_image_t background_menu;
 
 void (loadMainMenu)();
 

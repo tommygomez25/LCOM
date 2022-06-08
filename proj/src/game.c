@@ -1,8 +1,8 @@
 #include "game.h"
 
-extern uint8_t last;     /* keyboard */
 extern uint32_t COUNTER; /* timer */
 extern uint8_t scancode; /* mouse */
+extern uint8_t last;
 
 struct packet pack;
 struct mouse_ev mouse_event;
@@ -15,11 +15,6 @@ extern apple *apple1;
 extern int size; /* snake size */
 
 int(game_main_loop)() {
-
-  //create_apple();
-  //create_snake();
-
-  // uint8_t previousmove = RIGHT;
 
   int ipc_status, r;
   message msg;
@@ -43,13 +38,14 @@ int(game_main_loop)() {
   int irq_tmr = BIT(timer_bit_no);
   int irq_mouse = BIT(mouse_bit_no);
 
-  //uint8_t gameover = 0;
+  // uint8_t gameover = 0;
   bool MouseReadSecond = false, MouseReadThird = false;
   uint8_t ms_bytes[3]; /* to store mouse bytes */
 
   loadMainMenu();
-  
-  while (gameState != EXIT) {
+  printf("loaded main menu\n");
+
+  while (gameState != EXIT && last != ESC) {
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
       printf("driver_receive failed with: %d", r);
       continue;
@@ -85,7 +81,7 @@ int(game_main_loop)() {
           if (msg.m_notify.interrupts & irq_tmr) {
             timer_int_handler();
             GeneralInterrupt(TIMER);
-            //swap_buffer();
+            // swap_buffer();
             double_buffer();
           }
           break;
@@ -95,8 +91,6 @@ int(game_main_loop)() {
     }
   }
 
-  //free(snake);
-  //free(apple1);
   if (timer_unsubscribe_int() != 0) {
     return 1;
   }
@@ -109,13 +103,16 @@ int(game_main_loop)() {
   if (mouse_disable_data_report() != 0) {
     return 1;
   }
-  
-  if (vg_exit()) {return 1;}
-  
+
+  if (vg_exit()) {
+    return 1;
+  }
+
   return 1;
 }
 
 void GeneralInterrupt(Device device) {
+  printf("general interrupt\n");
   switch (gameState) {
     case MAINMENU:
       MainMenuInterruptHandler(device);
@@ -124,7 +121,7 @@ void GeneralInterrupt(Device device) {
       // PauseMenuInterruptHandler(device);
       break;
     case PLAY:
-      // PlayInterruptHandler(device);
+      PlayInterruptHandler(device);
       break;
     case SCOREBOARD:
       // HelpMenuInterruptHandler(device);
@@ -174,4 +171,59 @@ struct mouse_ev *mouse_events(struct packet *pack) {
     mouse_event.type = MOUSE_MOV;
 
   return &mouse_event;
+}
+
+void PlayInterruptHandler(Device device) {
+  printf("play interrutp handler\n");
+  switch (device) {
+    case TIMER:
+      check_snake_apple_collision(apple1);
+      draw_grass();
+      draw_apple();
+      draw_snake();
+      /*
+      if (gameState == LOST) {
+
+      }*/
+
+      define_snake_tail_sprite();
+
+      snake_update_movement();
+
+      define_snake_body_sprite();
+      /*
+      if (snake[size - 1].x > 800 || snake[size - 1].x < 0 || snake[size - 1].y < 150 || snake[size - 1].y > 600) {
+        gameover = 1;
+      }
+      for (int i = 0; i < size - 2; i++) {
+        if (snake[i].x == snake[size - 1].x && snake[i].y == snake[size - 1].y) {
+          gameover = 1;
+          break;
+        }
+      }
+      */
+      break;
+    case KEYBOARD:
+      // PAUSE MENU
+      /*
+      if (scancode == ESC) {
+        gameState = PAUSEMENU;
+        LoadRtc();
+        LoadPauseMenu();
+        break;
+      }*/
+      break;
+    case MOUSE: // NAO FAZER NADA
+      break;
+    case RTC:
+      break;
+  }
+}
+
+void(loadGame)() {
+  printf("loading game\n");
+  delete_xpm(background_menu,0,0);
+  create_grass();
+  create_apple();
+  create_snake();
 }

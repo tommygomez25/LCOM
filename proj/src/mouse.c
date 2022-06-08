@@ -123,18 +123,20 @@ Cursor *cursor;
 
 Cursor * create_cursor() {
   cursor = (Cursor *) malloc(sizeof(Cursor));
-  cursor->x = 500;
-  cursor->y = 325;
+  xpm_load(cursor_xpm,XPM_8_8_8,&cursor->img);
+
+  cursor->x = 20;
+  cursor->y = 20;
 
   return cursor;
 }
 
 void draw_cursor(){
-    get_xpm(cursor_xpm,cursor->x,cursor->y);
+    draw_xpm(cursor->img.bytes,&cursor->img,cursor->x,cursor->y);
 }
 
 void clean_cursor() {
-    delete_xpm(cursor_xpm,cursor->x,cursor->y);
+    delete_xpm(cursor->img,cursor->x,cursor->y);
 }
 
 void mouse_update(struct packet * pacote) {

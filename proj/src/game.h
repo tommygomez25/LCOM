@@ -10,6 +10,7 @@ typedef enum {MAINMENU,PLAY, LOST, WON, PAUSEMENU, SCOREBOARD, EXIT} GameState;
 
 #include "snake.h"
 #include "menu.h"
+#include "grass.h"
 
 
 int (game_main_loop)();
@@ -17,3 +18,7 @@ int (game_main_loop)();
 void GeneralInterrupt(Device device);
 
 struct mouse_ev * mouse_events(struct packet * pack);
+
+void PlayInterruptHandler(Device device);
+
+void (loadGame)();

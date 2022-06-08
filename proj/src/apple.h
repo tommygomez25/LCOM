@@ -6,7 +6,7 @@
 typedef struct {
     int x;   
     int y;    
-    xpm_row_t* xmap;
+    xpm_image_t img;
 } apple;
 
 void (create_apple)();
