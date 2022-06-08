@@ -123,8 +123,8 @@ Cursor *cursor;
 
 Cursor * create_cursor() {
   cursor = (Cursor *) malloc(sizeof(Cursor));
-  cursor->x = 30;
-  cursor->y = 20;
+  cursor->x = 650;
+  cursor->y = 320;
 
   return cursor;
 }
@@ -172,12 +172,11 @@ void mouse_update(struct packet * pacote) {
 
 
 unsigned int check_collision_main_menu () {
-  if (cursor->x > 300 && cursor->x < 500 && cursor->y > 150 && cursor->y <270){ // Play
-      printf("olaaaaaa111");
+  if (cursor->x > PLAY_BUTTON_X_POS_LEFT && cursor->x < PLAY_BUTTON_X_POS_RIGHT && cursor->y > PLAY_BUTTON_Y_POS_UP && cursor->y < PLAY_BUTTON_Y_POS_DOWN){ // Play
     return 1;}
-  else if (cursor->x > 300 && cursor->x < 500 && cursor->y > 300  && cursor->y < 450) // Scoreboard
+  else if (cursor->x > SCOREBOARD_BUTTON_X_POS_LEFT && cursor->x < SCOREBOARD_BUTTON_X_POS_RIGHT && cursor->y > SCOREBOARD_BUTTON_Y_POS_UP  && cursor->y < SCOREBOARD_BUTTON_Y_POS_DOWN) // Scoreboard
     return 2;  
-  else if (cursor->x > 300 && cursor->x < 500 && cursor->y > 450 && cursor->y <550 )  // Exit
+  else if (cursor->x > EXIT_BUTTON_X_POS_LEFT && cursor->x < EXIT_BUTTON_X_POS_RIGHT && cursor->y > EXIT_BUTTON_Y_POS_UP && cursor->y <EXIT_BUTTON_Y_POS_DOWN )  // Exit
     return 3;
   else return 0;
 }

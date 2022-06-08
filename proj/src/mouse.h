@@ -13,6 +13,19 @@ typedef struct {
     xpm_image_t img;
 } Cursor;
 
+#define PLAY_BUTTON_X_POS_LEFT 340
+#define PLAY_BUTTON_X_POS_RIGHT 450
+#define PLAY_BUTTON_Y_POS_UP 200
+#define PLAY_BUTTON_Y_POS_DOWN 260
+#define SCOREBOARD_BUTTON_X_POS_LEFT 300
+#define SCOREBOARD_BUTTON_X_POS_RIGHT 500
+#define SCOREBOARD_BUTTON_Y_POS_UP 325
+#define SCOREBOARD_BUTTON_Y_POS_DOWN 350
+#define EXIT_BUTTON_X_POS_LEFT 340
+#define EXIT_BUTTON_X_POS_RIGHT 420
+#define EXIT_BUTTON_Y_POS_UP 435
+#define EXIT_BUTTON_Y_POS_DOWN 465
+
 int (mouse_subscribe_int)(uint8_t *bit_no);
 
 int (mouse_unsubscribe_int)();

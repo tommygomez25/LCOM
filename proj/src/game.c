@@ -43,14 +43,13 @@ int(game_main_loop)() {
   int irq_tmr = BIT(timer_bit_no);
   int irq_mouse = BIT(mouse_bit_no);
 
-  uint8_t gameover = 0;
+  //uint8_t gameover = 0;
   bool MouseReadSecond = false, MouseReadThird = false;
   uint8_t ms_bytes[3]; /* to store mouse bytes */
 
   loadMainMenu();
-  printf("olaa");
-
-  while (last != ESC && gameover != 1) {
+  
+  while (gameState != EXIT) {
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
       printf("driver_receive failed with: %d", r);
       continue;
@@ -96,8 +95,8 @@ int(game_main_loop)() {
     }
   }
 
-  free(snake);
-  free(apple1);
+  //free(snake);
+  //free(apple1);
   if (timer_unsubscribe_int() != 0) {
     return 1;
   }
@@ -110,7 +109,9 @@ int(game_main_loop)() {
   if (mouse_disable_data_report() != 0) {
     return 1;
   }
-
+  
+  if (vg_exit()) {return 1;}
+  
   return 1;
 }
 

@@ -94,9 +94,10 @@ void MainMenuInterruptHandler(Device device) {
       //draw_clock();
       break;
   }
-  /*
+  
   if (clickedExit) // Sair
     gameState = EXIT;
+  /*
   else if (clickedPlay) { // Entrar no modo PLAY
     gameState = PLAY;
     //clean_clock();
