@@ -141,8 +141,8 @@ void clean_cursor() {
 
 void mouse_update(struct packet * pacote) {
 
-  clean_cursor();
-
+  
+  
   if (pacote->delta_x > 0) {
     if (cursor->x + pacote->delta_x > (int)h_res - cursor->img.width)
       cursor->x = (int)h_res - cursor->img.width;
@@ -167,8 +167,8 @@ void mouse_update(struct packet * pacote) {
     else
       cursor->y -= pacote->delta_y;
   }
+  
 
-  draw_cursor();
 
 }
 

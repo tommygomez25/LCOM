@@ -177,31 +177,26 @@ void PlayInterruptHandler(Device device) {
   printf("play interrutp handler\n");
   switch (device) {
     case TIMER:
+     if(COUNTER % 4 == 0){
       check_snake_apple_collision(apple1);
       draw_grass();
       draw_apple();
       draw_snake();
-      /*
-      if (gameState == LOST) {
-
-      }*/
-
       define_snake_tail_sprite();
-
       snake_update_movement();
-
       define_snake_body_sprite();
-      /*
-      if (snake[size - 1].x > 800 || snake[size - 1].x < 0 || snake[size - 1].y < 150 || snake[size - 1].y > 600) {
-        gameover = 1;
+      
+      if (snake[size - 1].x >= 800 || snake[size - 1].x < 0 || snake[size - 1].y < 150 || snake[size - 1].y >= 600) {
+        gameState = EXIT;
+        break;
       }
-      for (int i = 0; i < size - 2; i++) {
+      for (int i = 0; i < size - 1; i++) {
         if (snake[i].x == snake[size - 1].x && snake[i].y == snake[size - 1].y) {
-          gameover = 1;
+          gameState = EXIT;
           break;
         }
       }
-      */
+     }
       break;
     case KEYBOARD:
       // PAUSE MENU
@@ -222,7 +217,7 @@ void PlayInterruptHandler(Device device) {
 
 void(loadGame)() {
   printf("loading game\n");
-  delete_xpm(background_menu,0,0);
+  delete_xpm(menu_background_img,0,0);
   create_grass();
   create_apple();
   create_snake();
