@@ -119,10 +119,9 @@ int get_xpm(xpm_map_t xmap, uint16_t x, uint16_t y){
 
 
 int delete_xpm(xpm_image_t img, uint16_t x, uint16_t y){
-
   for(unsigned int i=0; i<img.height; i++){
     for(unsigned int j= 0; j<img.width; j++){
-      vg_draw_pixel(x + j, y + i, 0);
+       vg_draw_pixel(x + j, y + i, 0);
     }
   }
   return 0;

@@ -12,3 +12,4 @@ void (create_grass)(){
 void (draw_grass)(){
     draw_xpm(grass1->img.bytes,&grass1->img,grass1->x,grass1->y);
 }
+

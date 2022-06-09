@@ -2,7 +2,7 @@
 static xpm_row_t const menu_xpm[] = {
 /* columns rows colors chars-per-pixel */
 "800 600 29 1 ",
-"  c #000000",
+"  c None",
 ". c #101010",
 "X c #FFFFFF",
 "o c #202020",
