@@ -39,11 +39,19 @@ void MainMenuInterruptHandler(Device device) {
           }
           else if (overPlay) {
             overPlay = false;
+<<<<<<< HEAD
             delete_xpm(highlight_button_img,450,205);
           }
           else if (overScoreboard) {
             overScoreboard = false;
             delete_xpm(highlight_button_img,530,320);
+=======
+            delete_xpm(highlight_button_img,470,200);
+          }
+          else if (overScoreboard) {
+            overScoreboard = false;
+            delete_xpm(highlight_button_img,530,325);
+>>>>>>> 000747aaf409c738efbb8fc8733e15726c3ebc3f
           }
           break;
         case 1: // cursor is over 'PLAY'
@@ -97,10 +105,17 @@ void MainMenuInterruptHandler(Device device) {
         draw_main_menu_background();
         
         if(overPlay){
+<<<<<<< HEAD
           draw_xpm(highlight_button_img.bytes,&highlight_button_img,450,205);
         }
         else if(overScoreboard){
           draw_xpm(highlight_button_img.bytes,&highlight_button_img,530,320);
+=======
+          draw_xpm(highlight_button_img.bytes,&highlight_button_img,470,200);
+        }
+        else if(overScoreboard){
+          draw_xpm(highlight_button_img.bytes,&highlight_button_img,530,325);
+>>>>>>> 000747aaf409c738efbb8fc8733e15726c3ebc3f
         }
         else if(overExit){
           draw_xpm(highlight_button_img.bytes,&highlight_button_img,440,435);
