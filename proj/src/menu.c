@@ -39,11 +39,11 @@ void MainMenuInterruptHandler(Device device) {
           }
           else if (overPlay) {
             overPlay = false;
-            delete_xpm(highlight_button_img,470,200);
+            delete_xpm(highlight_button_img,450,205);
           }
           else if (overScoreboard) {
             overScoreboard = false;
-            delete_xpm(highlight_button_img,530,325);
+            delete_xpm(highlight_button_img,530,320);
           }
           break;
         case 1: // cursor is over 'PLAY'
