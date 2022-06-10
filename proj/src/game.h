@@ -3,6 +3,7 @@
 #include "i8042.h"
 #include "keyboard.h"
 #include "timer.h"
+#include "rtc.h"
 
 typedef enum {TIMER, KEYBOARD, MOUSE, RTC} Device;
 

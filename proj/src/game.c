@@ -20,7 +20,7 @@ int(game_main_loop)() {
   int ipc_status, r;
   message msg;
 
-  uint8_t timer_bit_no, kbd_bit_no, mouse_bit_no;
+  uint8_t timer_bit_no, kbd_bit_no, mouse_bit_no,rtc_bit_no;
 
   if (kbd_subscribe_int(&kbd_bit_no) != 0) {
     return 1;
@@ -35,18 +35,22 @@ int(game_main_loop)() {
     return 1;
   }
 
+  if (rtc_subscribe_int(&rtc_bit_no) != 0){
+    return 1;
+  }
+
   int irq_kbd = BIT(kbd_bit_no);
   int irq_tmr = BIT(timer_bit_no);
   int irq_mouse = BIT(mouse_bit_no);
+  int irq_rtc = BIT(rtc_bit_no);
 
   // uint8_t gameover = 0;
   bool MouseReadSecond = false, MouseReadThird = false;
   uint8_t ms_bytes[3]; /* to store mouse bytes */
 
   loadMainMenu();
-  printf("loaded main menu 111\n");
 
-  while (gameState != EXIT && last != ESC ) {
+  while (gameState != EXIT /*&& last != ESC*/ ) {
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
       printf("driver_receive failed with: %d", r);
       continue;
@@ -79,6 +83,11 @@ int(game_main_loop)() {
               GeneralInterrupt(MOUSE);
             }
           }
+
+          if (msg.m_notify.interrupts & irq_rtc){
+            rtc_ih();
+            GeneralInterrupt(RTC);
+          }
           if (msg.m_notify.interrupts & irq_tmr) {
             timer_int_handler();
             GeneralInterrupt(TIMER);
@@ -104,6 +113,9 @@ int(game_main_loop)() {
   if (mouse_disable_data_report() != 0) {
     return 1;
   }
+  if (rtc_unsubscribe_int() != 0) {
+    return 1;
+  }
 
   if (vg_exit()) {
     return 1;
@@ -113,7 +125,7 @@ int(game_main_loop)() {
 }
 
 void GeneralInterrupt(Device device) {
-  printf("general interrupt\n");
+
   switch (gameState) {
     case MAINMENU:
       MainMenuInterruptHandler(device);
@@ -180,7 +192,7 @@ void PlayInterruptHandler(Device device) {
     case TIMER:
      if(COUNTER % 4 == 0){
       check_snake_apple_collision(apple1);
-      draw_score();
+      draw_score(200,1);
       draw_grass();
       draw_apple();
       draw_snake();
@@ -240,15 +252,15 @@ void(loadGame)() {
   create_snake();
 }
 
-void (draw_score)(){
+void (draw_score)(int x, int y){
   int xx= 0;
   int aux = score;
   int aux2 = score-1;
 
   while (aux2 >= 0){ /* delete previouse score */
     int i = aux2 % 10;
-    delete_xpm(numbers_img[i],200-xx,1);
-    xx+=25;
+    delete_xpm(numbers_img[i],x-xx,y);
+    xx+=20;
     aux2 = aux2 / 10;
     if (aux2 == 0 ) break;
   }
@@ -257,8 +269,8 @@ void (draw_score)(){
 
   while (aux >= 0){ /* draw new score */
     int i = aux % 10;
-    draw_xpm(numbers_img[i].bytes,&numbers_img[i],200-xx,1);
-    xx += 25;
+    draw_xpm(numbers_img[i].bytes,&numbers_img[i],x-xx,y);
+    xx += 20;
     aux = aux / 10;
     if (aux == 0) break;
   }

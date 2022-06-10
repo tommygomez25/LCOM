@@ -4,6 +4,7 @@ extern uint8_t scancode;
 extern unsigned int h_res, v_res;
 extern int COUNTER;
 extern uint8_t last;
+extern int score;
 
 struct packet pack;
 
@@ -103,7 +104,7 @@ void MainMenuInterruptHandler(Device device) {
       mouse_update(&pack);
       break;
     case RTC:
-      // print_clock();
+      print_clock();
       // clean_clock();
       // updateDateTime();
       // draw_clock();
@@ -132,16 +133,16 @@ void MainMenuInterruptHandler(Device device) {
 
 void GameLostInterruptHandler(Device device) {
 
-  printf("GameLostInterruptHandler\n");
   switch (device) {
     case TIMER:
       break;
     case KEYBOARD:
       if (last == ESC) {
         gameState = MAINMENU;
-        delete_xpm(yourScoreWas_img,226,300);
+        delete_xpm(yourScoreWas_img,206,300);
         delete_xpm(youLost_img,265,230);
         delete_xpm(black_background_img,0,0);
+        score = 0;
         loadMainMenu();
       }
       break;
@@ -159,5 +160,6 @@ void (loadLostMenu)(){
   xpm_load(youLost_xpm,XPM_8_8_8,&youLost_img);
   draw_xpm(black_background_img.bytes,&black_background_img,0,0);
   draw_xpm(youLost_img.bytes,&youLost_img,265,230);
-  draw_xpm(yourScoreWas_img.bytes,&yourScoreWas_img,226,300);
+  draw_xpm(yourScoreWas_img.bytes,&yourScoreWas_img,206,300);
+  draw_score(585,305);
 }
