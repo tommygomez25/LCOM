@@ -13,6 +13,7 @@ extern Cursor *cursor;
 extern snakepart *snake;
 extern apple *apple1;
 extern int size; /* snake size */
+extern int score; /* score of the player */
 
 int(game_main_loop)() {
 
@@ -43,9 +44,9 @@ int(game_main_loop)() {
   uint8_t ms_bytes[3]; /* to store mouse bytes */
 
   loadMainMenu();
-  printf("loaded main menu\n");
+  printf("loaded main menu 111\n");
 
-  while (gameState != EXIT && last != ESC) {
+  while (gameState != EXIT ) {
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
       printf("driver_receive failed with: %d", r);
       continue;
@@ -130,7 +131,7 @@ void GeneralInterrupt(Device device) {
       // GameWonInterruptHandler(device);
       break;
     case LOST:
-      // GameLostInterruptHandler(device);
+      GameLostInterruptHandler(device);
       break;
     case EXIT:
       break;
@@ -174,11 +175,13 @@ struct mouse_ev *mouse_events(struct packet *pack) {
 }
 
 void PlayInterruptHandler(Device device) {
-  printf("play interrutp handler\n");
+
   switch (device) {
     case TIMER:
      if(COUNTER % 4 == 0){
       check_snake_apple_collision(apple1);
+      draw_score();
+      printf("score is %d\n",score);
       draw_grass();
       draw_apple();
       draw_snake();
@@ -187,12 +190,14 @@ void PlayInterruptHandler(Device device) {
       define_snake_body_sprite();
       
       if (snake[size - 1].x >= 800 || snake[size - 1].x < 0 || snake[size - 1].y < 150 || snake[size - 1].y >= 600) {
-        gameState = EXIT;
+        gameState = LOST;
+        loadLostMenu();
         break;
       }
       for (int i = 0; i < size - 1; i++) {
         if (snake[i].x == snake[size - 1].x && snake[i].y == snake[size - 1].y) {
-          gameState = EXIT;
+          gameState = LOST;
+          loadLostMenu();
           break;
         }
       }
@@ -216,9 +221,38 @@ void PlayInterruptHandler(Device device) {
 }
 
 void(loadGame)() {
-  printf("loading game\n");
+
+  xpm_load(zero_xpm,XPM_8_8_8,&numbers_img[0]);
+  xpm_load(one_xpm,XPM_8_8_8,&numbers_img[1]);
+  xpm_load(two_xpm,XPM_8_8_8,&numbers_img[2]);
+  xpm_load(three_xpm,XPM_8_8_8,&numbers_img[3]);
+  xpm_load(four_xpm,XPM_8_8_8,&numbers_img[4]);
+  xpm_load(five_xpm,XPM_8_8_8,&numbers_img[5]);
+  xpm_load(six_xpm,XPM_8_8_8,&numbers_img[6]);
+  xpm_load(seven_xpm,XPM_8_8_8,&numbers_img[7]);
+  xpm_load(eight_xpm,XPM_8_8_8,&numbers_img[8]);
+  xpm_load(nine_xpm,XPM_8_8_8,&numbers_img[9]);
+
   delete_xpm(menu_background_img,0,0);
+  delete_xpm(logotip_img,250,50);
+
   create_grass();
   create_apple();
   create_snake();
+}
+
+void (draw_score)(){
+  int xx= 0;
+  int aux = score;
+
+  if (score == 0){
+    draw_xpm(numbers_img[0].bytes,&numbers_img[0],1,1);
+    return;
+  }
+  while (aux/10 > 0){
+    int i = aux % 10;
+    draw_xpm(numbers_img[i].bytes,&numbers_img[i],200-xx,1);
+    xx += 50;
+    aux = aux / 10;
+  }
 }

@@ -4,6 +4,7 @@ snakepart *snake;
 int size = 3;
 int previousmove = RIGHT;
 int speed = 20;
+int score = 0;
 
 extern uint8_t last; /* keyboard last scancode */
 
@@ -66,7 +67,9 @@ void(draw_snake)() {
 
 void(check_snake_apple_collision)(apple *apple1) {
 
-  if (snake[size - 1].x == apple1->x && snake[size - 1].y == apple1->y) {
+  if (snake[size - 1].x == apple1->x && snake[size - 1].y == apple1->y) { /* if head of the snake coordenates are equal to apple coordenates */
+    (score)++;
+    printf("score incremented is: %d\n",score);
     snake[size] = snake[size - 1];
     if (last == UP) {
       snake[size].y -= 20;

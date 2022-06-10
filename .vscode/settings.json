@@ -2,6 +2,8 @@
     "makefile.extensionOutputFolder": "./.vscode",
     "files.associations": {
         "lcf.h": "c",
-        "*.xpm": "c"
+        "*.xpm": "c",
+        "menu.h": "c",
+        "video_gr.h": "c"
     }
 }
