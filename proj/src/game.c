@@ -181,7 +181,6 @@ void PlayInterruptHandler(Device device) {
      if(COUNTER % 4 == 0){
       check_snake_apple_collision(apple1);
       draw_score();
-      printf("score is %d\n",score);
       draw_grass();
       draw_apple();
       draw_snake();
@@ -244,13 +243,22 @@ void(loadGame)() {
 void (draw_score)(){
   int xx= 0;
   int aux = score;
+  int aux2 = score-1;
 
-  delete_xpm(numbers_img[score-1],200,1);
+  while (aux2 >= 0){ /* delete previouse score */
+    int i = aux2 % 10;
+    delete_xpm(numbers_img[i],200-xx,1);
+    xx+=25;
+    aux2 = aux2 / 10;
+    if (aux2 == 0 ) break;
+  }
 
-  while (aux >= 0){
+  xx= 0;
+
+  while (aux >= 0){ /* draw new score */
     int i = aux % 10;
     draw_xpm(numbers_img[i].bytes,&numbers_img[i],200-xx,1);
-    xx += 50;
+    xx += 25;
     aux = aux / 10;
     if (aux == 0) break;
   }

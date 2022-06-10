@@ -4,7 +4,7 @@ snakepart *snake;
 int size = 3;
 int previousmove = RIGHT;
 int speed = 20;
-int score = 0;
+int score = 9;
 
 extern uint8_t last; /* keyboard last scancode */
 
