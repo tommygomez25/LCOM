@@ -46,7 +46,7 @@ int(game_main_loop)() {
   loadMainMenu();
   printf("loaded main menu 111\n");
 
-  while (gameState != EXIT ) {
+  while (gameState != EXIT && last != ESC ) {
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
       printf("driver_receive failed with: %d", r);
       continue;
@@ -245,14 +245,13 @@ void (draw_score)(){
   int xx= 0;
   int aux = score;
 
-  if (score == 0){
-    draw_xpm(numbers_img[0].bytes,&numbers_img[0],1,1);
-    return;
-  }
-  while (aux/10 > 0){
+  delete_xpm(numbers_img[score-1],200,1);
+
+  while (aux >= 0){
     int i = aux % 10;
     draw_xpm(numbers_img[i].bytes,&numbers_img[i],200-xx,1);
     xx += 50;
     aux = aux / 10;
+    if (aux == 0) break;
   }
 }
