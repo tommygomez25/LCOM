@@ -15,7 +15,7 @@ int(rtc_subscribe_int)(uint8_t *bit_no) {
   if (sys_outb(RTC_ADDR_REG, RTC_B) != 0) {return 1;} /* indicate that I want to read from Register B */
   if (sys_inb(RTC_DATA_REG, &reg) != 0) {return 1;} /* read register B */
 
-  reg = reg | RTC_UIE; /* Update Interrupt Enable */
+  reg = reg | RTC_UIE ; /* Update Interrupt Enable */
 
   if (sys_outb(RTC_ADDR_REG,RTC_B) != 0) {return 1;} /* indicate that I want to write in Register B */
   if (sys_outb(RTC_DATA_REG,reg) !=0) {return 1;} /* write updated register B */
@@ -126,10 +126,12 @@ int rtc_read(uint8_t reg) {
 }
 
 uint8_t convert_from_bcd (uint8_t bcdNum) {
+    uint8_t dec = ((bcdNum & 0xF0) >> 4) * 10 + (bcdNum & 0X0F);
+    /*
   uint8_t decNum = (bcdNum >> 4) * 10;
   decNum += (bcdNum & 0x0F);
-
-  return decNum;
+    */
+  return dec;
 }
 
 void print_clock() {
