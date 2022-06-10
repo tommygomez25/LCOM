@@ -26,6 +26,7 @@
 #define RTC_PIE BIT(6)
 #define RTC_AIE BIT(5)
 #define RTC_UIE BIT(4)
+#define RTC_DM BIT(2)
 
 #define RTC_C 12
 #define RTC_PF BIT(6)
@@ -37,10 +38,6 @@
 int (rtc_subscribe_int)(uint8_t *bit_no);
 
 int (rtc_unsubscribe_int)();
-
-int rtc_enable();
-
-int rtc_disable();
 
 void (rtc_ih)();
 

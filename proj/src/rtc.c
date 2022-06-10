@@ -39,28 +39,17 @@ int(rtc_unsubscribe_int)() {
   return 0;
 }
 
-int rtc_enable() {
-  if (sys_irqenable(&hook_id_rtc) != 0) {return 1;}
-  
-  return 0;
-}
-
-int rtc_disable() {
-  if (sys_irqdisable(&hook_id_rtc) != 0) {return 1;}
-
-  return 0;
-}
 
 int wait_valid_rtc() {
   uint32_t regA = 0;
   
   do {
-    if (rtc_disable() != 0) {return 1;}
+    if (sys_irqdisable(&hook_id_rtc) != 0) {return 1;} /* need to disable interrupts before checking register A bit 7 */
 
     if (sys_outb(RTC_ADDR_REG, RTC_A) != 0) {return 1;}
     if (sys_inb(RTC_DATA_REG, &regA) != 0) {return 1;}
 
-    if (rtc_enable() != 0) {return 1;}
+    if (sys_irqenable(&hook_id_rtc) != 0) {return 1;}
 
   } while (regA & RTC_UIP); /* in Status Register A , if the UIP is set to 1, then an update is in progress, which means we cannot access time/date registers */
 
