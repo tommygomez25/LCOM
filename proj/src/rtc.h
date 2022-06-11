@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include "utils.h"
+#include <math.h>
 
 #define RTC_IRQ 8
 
@@ -43,6 +44,8 @@ void (rtc_ih)();
 
 int rtc_read(uint8_t reg);
 
-uint8_t convert_from_bcd (uint8_t bcdNum);
+uint8_t convert_from_binary (uint8_t bcdNum);
 
 void print_clock();
+
+int wait_regA_rtc();

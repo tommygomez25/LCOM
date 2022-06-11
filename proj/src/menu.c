@@ -34,7 +34,7 @@ void MainMenuInterruptHandler(Device device) {
 
   switch (device) {
     case TIMER:
-      if (COUNTER % 2 == 0) {
+      if (COUNTER % 4 == 0) {
         switch (check_collision_main_menu()) {
           case 0: // cursor is not in any button
             if (overExit) {
