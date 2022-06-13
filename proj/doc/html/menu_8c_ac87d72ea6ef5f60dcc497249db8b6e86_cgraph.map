@@ -1,7 +1,7 @@
 <map id="draw_scoreboard" name="draw_scoreboard">
-<area shape="rect" id="node1" title="loads all the XPMs related to letters. Reads the highscores.txt file and draws on the screen the data..." alt="" coords="5,56,125,83"/>
-<area shape="rect" id="node2" href="$menu_8c.html#a497b69ff7808f6be840c46052747f9a1" title="draws a name on the screen" alt="" coords="179,5,267,32"/>
-<area shape="rect" id="node3" href="$video__gr_8c.html#a843bebd62d0bad661abfa8c25a58de93" title="draws a xpm on the screen" alt="" coords="320,56,401,83"/>
-<area shape="rect" id="node5" href="$menu_8c.html#a25f307c2ef739e14719cdb35c611d94b" title="draws a number on the screen" alt="" coords="173,107,272,133"/>
-<area shape="rect" id="node4" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title="draws a pixel on the screen" alt="" coords="449,56,552,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,125,83"/>
+<area shape="rect" id="node2" href="$menu_8c.html#a497b69ff7808f6be840c46052747f9a1" title=" " alt="" coords="179,5,267,32"/>
+<area shape="rect" id="node3" href="$video__gr_8c.html#a843bebd62d0bad661abfa8c25a58de93" title=" " alt="" coords="320,56,401,83"/>
+<area shape="rect" id="node5" href="$menu_8c.html#a25f307c2ef739e14719cdb35c611d94b" title=" " alt="" coords="173,107,272,133"/>
+<area shape="rect" id="node4" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title=" " alt="" coords="449,56,552,83"/>
 </map>

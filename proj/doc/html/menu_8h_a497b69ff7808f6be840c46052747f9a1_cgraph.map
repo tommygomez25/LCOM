@@ -1,5 +1,5 @@
 <map id="draw_name" name="draw_name">
-<area shape="rect" id="node1" title="draws a name on the screen" alt="" coords="5,5,93,32"/>
-<area shape="rect" id="node2" href="$video__gr_8c.html#a843bebd62d0bad661abfa8c25a58de93" title="draws a xpm on the screen" alt="" coords="141,5,223,32"/>
-<area shape="rect" id="node3" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title="draws a pixel on the screen" alt="" coords="271,5,373,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,93,32"/>
+<area shape="rect" id="node2" href="$video__gr_8c.html#a843bebd62d0bad661abfa8c25a58de93" title=" " alt="" coords="141,5,223,32"/>
+<area shape="rect" id="node3" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title=" " alt="" coords="271,5,373,32"/>
 </map>

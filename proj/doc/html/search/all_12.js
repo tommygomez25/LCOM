@@ -4,7 +4,7 @@ var searchData=
   ['s_1',['s',['../menu_8h.html#af35394cd0cfe94bc15151376b8db15da',1,'menu.h']]],
   ['save_2',['SAVE',['../game_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a793562cbf5bffacba71303cee907ef7d',1,'game.h']]],
   ['saveinterrupthandler_3',['SaveInterruptHandler',['../menu_8c.html#a2f6265b101df065d10038d1746e7c8c5',1,'SaveInterruptHandler(Device device):&#160;menu.c'],['../menu_8h.html#a2f6265b101df065d10038d1746e7c8c5',1,'SaveInterruptHandler(Device device):&#160;menu.c']]],
-  ['savescore_4',['savescore',['../menu_8c.html#ab3f501bbc8c35d4feded6f9df13b88be',1,'savescore(int score, char *name):&#160;menu.c'],['../menu_8h.html#ad0ed938595f4a881f798de5d3ca4904d',1,'savescore(int score, char *name):&#160;menu.c']]],
+  ['savescore_4',['savescore',['../menu_8c.html#ab3f501bbc8c35d4feded6f9df13b88be',1,'savescore(int score, char *name):&#160;menu.c'],['../menu_8h.html#ab3f501bbc8c35d4feded6f9df13b88be',1,'savescore(int score, char *name):&#160;menu.c']]],
   ['scancode_5',['scancode',['../mouse_8c.html#aa1de7a5557e9d96b83cf03f73c92163f',1,'scancode():&#160;mouse.c'],['../game_8c.html#aa1de7a5557e9d96b83cf03f73c92163f',1,'scancode():&#160;mouse.c'],['../menu_8c.html#aa1de7a5557e9d96b83cf03f73c92163f',1,'scancode():&#160;mouse.c']]],
   ['score_6',['score',['../game_8c.html#aef160b7437d94056f1dc59646cd5b87d',1,'score():&#160;snake.c'],['../menu_8c.html#aef160b7437d94056f1dc59646cd5b87d',1,'score():&#160;snake.c'],['../snake_8c.html#aef160b7437d94056f1dc59646cd5b87d',1,'score():&#160;snake.c']]],
   ['scoreboard_7',['SCOREBOARD',['../game_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285aedb8021c05603471ad7d382d8288223b',1,'game.h']]],
@@ -18,7 +18,7 @@ var searchData=
   ['snake_15',['snake',['../snake_8c.html#afa7959aa7158212dcdc1df852d7ab598',1,'snake():&#160;snake.c'],['../game_8c.html#afa7959aa7158212dcdc1df852d7ab598',1,'snake():&#160;snake.c']]],
   ['snake_2ec_16',['snake.c',['../snake_8c.html',1,'']]],
   ['snake_2eh_17',['snake.h',['../snake_8h.html',1,'']]],
-  ['snake_5fupdate_5fmovement_18',['snake_update_movement',['../snake_8c.html#a8f1b6546e889c2cf2e1d72f3b5b7caaf',1,'snake_update_movement():&#160;snake.c'],['../snake_8h.html#a74af5bc33a09ecacde6b1e198097139c',1,'snake_update_movement():&#160;snake.c']]],
+  ['snake_5fupdate_5fmovement_18',['snake_update_movement',['../snake_8c.html#a8f1b6546e889c2cf2e1d72f3b5b7caaf',1,'snake_update_movement():&#160;snake.c'],['../snake_8h.html#a8f1b6546e889c2cf2e1d72f3b5b7caaf',1,'snake_update_movement():&#160;snake.c']]],
   ['snakebodyhorizontal_5fimg_19',['snakebodyhorizontal_img',['../snake_8h.html#a9004f28a269df960a875d2843ba8e860',1,'snake.h']]],
   ['snakebodyvertical_5fimg_20',['snakebodyvertical_img',['../snake_8h.html#a173f00f684ce0a3b624e7d6d3dfe1ebd',1,'snake.h']]],
   ['snakeheaddown_5fimg_21',['snakeheaddown_img',['../snake_8h.html#ad79db239bfae9949eeb8094a4b155b54',1,'snake.h']]],
@@ -42,5 +42,6 @@ var searchData=
   ['st_5fpar_5ferr_39',['ST_PAR_ERR',['../i8042_8h.html#a0513caba02b0ef1d311bb907cc7f15b8',1,'i8042.h']]],
   ['st_5fto_5ferr_40',['ST_TO_ERR',['../i8042_8h.html#ac923d18a82dd0bd6d2892c722ed66921',1,'i8042.h']]],
   ['stat_5freg_41',['STAT_REG',['../i8042_8h.html#a89c4d098b53809674457b1660b1af780',1,'i8042.h']]],
-  ['stream_5fmode_42',['STREAM_MODE',['../i8042_8h.html#ab3919f33b46e0808c4ed1c56a6a423f2',1,'i8042.h']]]
+  ['stream_5fmode_42',['STREAM_MODE',['../i8042_8h.html#ab3919f33b46e0808c4ed1c56a6a423f2',1,'i8042.h']]],
+  ['swap_5fbuffer_43',['swap_buffer',['../video__gr_8c.html#ad42c7cf5f54fed0714fcf1f6e5e35bee',1,'swap_buffer():&#160;video_gr.c'],['../video__gr_8h.html#ae1a99ee23f3b94cac3562bc674209ec3',1,'swap_buffer():&#160;video_gr.c']]]
 ];

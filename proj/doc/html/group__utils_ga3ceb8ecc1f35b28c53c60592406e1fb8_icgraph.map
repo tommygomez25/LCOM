@@ -1,6 +1,6 @@
 <map id="convert_2_complement" name="convert_2_complement">
 <area shape="rect" id="node1" title=" " alt="" coords="469,5,624,32"/>
-<area shape="rect" id="node2" href="$mouse_8c.html#a01d295ac97cfee4e08740aa231a578dc" title="builds the mouse packet" alt="" coords="331,5,421,32"/>
-<area shape="rect" id="node3" href="$game_8c.html#afe902ca09bf015ddf076a6661dcd9595" title="This function is where the main loop occur. First, all the device interrupts are subscribed ,..." alt="" coords="163,5,283,32"/>
+<area shape="rect" id="node2" href="$mouse_8c.html#a01d295ac97cfee4e08740aa231a578dc" title=" " alt="" coords="331,5,421,32"/>
+<area shape="rect" id="node3" href="$game_8c.html#afe902ca09bf015ddf076a6661dcd9595" title=" " alt="" coords="163,5,283,32"/>
 <area shape="rect" id="node4" href="$proj_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,5,115,32"/>
 </map>

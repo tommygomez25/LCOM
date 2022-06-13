@@ -1,12 +1,12 @@
 <map id="util_sys_inb" name="util_sys_inb">
 <area shape="rect" id="node1" title="Invokes sys_inb() system call but reads the value into a uint8_t variable." alt="" coords="732,87,823,113"/>
-<area shape="rect" id="node2" href="$keyboard_8c.html#aea970a154161a35f6894898a092ed70a" title="Controols Keyboard interrupts." alt="" coords="591,5,651,32"/>
-<area shape="rect" id="node5" href="$mouse_8c.html#a210374b50462acdedab00df64d5cea3c" title="handles the mouse interrupt" alt="" coords="381,53,459,80"/>
-<area shape="rect" id="node6" href="$mouse_8c.html#ade314a04247b0f06b713297da4978e7b" title="Write a command to mouse." alt="" coords="557,112,684,139"/>
+<area shape="rect" id="node2" href="$keyboard_8c.html#aea970a154161a35f6894898a092ed70a" title=" " alt="" coords="591,5,651,32"/>
+<area shape="rect" id="node5" href="$mouse_8c.html#a210374b50462acdedab00df64d5cea3c" title=" " alt="" coords="381,53,459,80"/>
+<area shape="rect" id="node6" href="$mouse_8c.html#ade314a04247b0f06b713297da4978e7b" title=" " alt="" coords="557,112,684,139"/>
 <area shape="rect" id="node9" href="$group__timer.html#ga703c60b40c8c49607d6ecb6fef82d27a" title="Reads the input timer configuration (status) via read&#45;back command." alt="" coords="567,192,674,219"/>
-<area shape="rect" id="node3" href="$game_8c.html#afe902ca09bf015ddf076a6661dcd9595" title="This function is where the main loop occur. First, all the device interrupts are subscribed ,..." alt="" coords="163,83,283,109"/>
+<area shape="rect" id="node3" href="$game_8c.html#afe902ca09bf015ddf076a6661dcd9595" title=" " alt="" coords="163,83,283,109"/>
 <area shape="rect" id="node4" href="$proj_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,83,115,109"/>
-<area shape="rect" id="node7" href="$mouse_8c.html#a96841fd4b45902aa9e1124a8b1814e3b" title="Disables mouse data reporting." alt="" coords="349,105,491,146"/>
-<area shape="rect" id="node8" href="$mouse_8c.html#a74456022e2b29fbc3741dc59bd5033be" title="Enables mouse data reporting." alt="" coords="331,171,509,197"/>
+<area shape="rect" id="node7" href="$mouse_8c.html#a96841fd4b45902aa9e1124a8b1814e3b" title=" " alt="" coords="349,105,491,146"/>
+<area shape="rect" id="node8" href="$mouse_8c.html#a74456022e2b29fbc3741dc59bd5033be" title=" " alt="" coords="331,171,509,197"/>
 <area shape="rect" id="node10" href="$group__timer.html#gaf2c04fa8e97ffa748fd3f612886a92a7" title="Changes the operating frequency of a timer." alt="" coords="351,221,489,248"/>
 </map>

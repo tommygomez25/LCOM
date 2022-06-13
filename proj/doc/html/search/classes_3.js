@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['snakepart_0',['snakepart',['../structsnakepart.html',1,'']]]
+  ['letter_0',['Letter',['../struct_letter.html',1,'']]]
 ];

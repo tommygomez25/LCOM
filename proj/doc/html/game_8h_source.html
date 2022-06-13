@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Snake: game.h Source File</title>
+<title>Snake Project for LC: game.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Snake
+   <div id="projectname">Snake Project for LC
    </div>
   </td>
  </tr>
@@ -89,25 +89,32 @@ $(function() {
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;sprites/7.xpm&quot;</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;sprites/8.xpm&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;sprites/9.xpm&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="game_8h.html#a8e659f3e00da3fec7a342b8e2315a0c5">   26</a></span>xpm_image_t <a class="code hl_variable" href="game_8h.html#a8e659f3e00da3fec7a342b8e2315a0c5">numbers_img</a>[10];</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">int</span> <a class="code hl_function" href="game_8h.html#a315e950a7e6bb500fe11c37ee1122577">game_main_loop</a>();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keywordtype">void</span> <a class="code hl_function" href="game_8h.html#a0b864f673ac845f6a8f8857296285dca">GeneralInterrupt</a>(<a class="code hl_enumeration" href="game_8h.html#adb53a8cc97236ca207c035241a5b7fb8">Device</a> device);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;sprites/daybackground.xpm&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;sprites/afternoonbackground.xpm&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;sprites/nightbackground.xpm&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="game_8h.html#a8e659f3e00da3fec7a342b8e2315a0c5">   29</a></span>xpm_image_t <a class="code hl_variable" href="game_8h.html#a8e659f3e00da3fec7a342b8e2315a0c5">numbers_img</a>[10];</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="game_8h.html#adad7d2c2da5ca630461f527409fa416d">   30</a></span>xpm_image_t <a class="code hl_variable" href="game_8h.html#adad7d2c2da5ca630461f527409fa416d">day_img</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="game_8h.html#afc4f9db59cc541b5879bafa2d32d9063">   31</a></span>xpm_image_t <a class="code hl_variable" href="game_8h.html#afc4f9db59cc541b5879bafa2d32d9063">afternoon_img</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="game_8h.html#aa1e173e1f6d04687d6d9eb336f0edd8d">   32</a></span>xpm_image_t <a class="code hl_variable" href="game_8h.html#aa1e173e1f6d04687d6d9eb336f0edd8d">night_img</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>int (<a class="code hl_function" href="game_8h.html#afe902ca09bf015ddf076a6661dcd9595">game_main_loop</a>)();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keywordtype">void</span> <a class="code hl_function" href="game_8h.html#a0b864f673ac845f6a8f8857296285dca">GeneralInterrupt</a>(<a class="code hl_enumeration" href="game_8h.html#adb53a8cc97236ca207c035241a5b7fb8">Device</a> device);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">struct </span>mouse_ev * <a class="code hl_function" href="game_8h.html#a907cfdcea783b671613f38e54ac75add">mouse_events</a>(<span class="keyword">struct</span> packet * <a class="code hl_variable" href="game_8c.html#ae818888612d45a261720e4f82f67bcf9">pack</a>);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keywordtype">void</span> <a class="code hl_function" href="game_8h.html#a647ccf30a13d3d27a778baf6dcb66669">PlayInterruptHandler</a>(<a class="code hl_enumeration" href="game_8h.html#adb53a8cc97236ca207c035241a5b7fb8">Device</a> device);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">struct </span>mouse_ev * <a class="code hl_function" href="game_8h.html#a907cfdcea783b671613f38e54ac75add">mouse_events</a>(<span class="keyword">struct</span> packet * <a class="code hl_variable" href="game_8c.html#ae818888612d45a261720e4f82f67bcf9">pack</a>);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keywordtype">void</span> <a class="code hl_function" href="game_8h.html#a647ccf30a13d3d27a778baf6dcb66669">PlayInterruptHandler</a>(<a class="code hl_enumeration" href="game_8h.html#adb53a8cc97236ca207c035241a5b7fb8">Device</a> device);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keywordtype">void</span> <a class="code hl_function" href="game_8h.html#ab31643a884d56d21baa151f155d93b26">loadGame</a>();</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="game_8h.html#a200dcd33e635176ca83ddde81b7b7610">   72</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="game_8h.html#a200dcd33e635176ca83ddde81b7b7610">draw_score</a>();</div>
-<div class="ttc" id="agame_8c_html_ae818888612d45a261720e4f82f67bcf9"><div class="ttname"><a href="game_8c.html#ae818888612d45a261720e4f82f67bcf9">pack</a></div><div class="ttdeci">struct packet pack</div><div class="ttdef"><b>Definition:</b> game.c:7</div></div>
-<div class="ttc" id="agame_8h_html_a0b864f673ac845f6a8f8857296285dca"><div class="ttname"><a href="game_8h.html#a0b864f673ac845f6a8f8857296285dca">GeneralInterrupt</a></div><div class="ttdeci">void GeneralInterrupt(Device device)</div><div class="ttdoc">This function receives a device interrupt and depending on the game state of the game,...</div><div class="ttdef"><b>Definition:</b> game.c:127</div></div>
-<div class="ttc" id="agame_8h_html_a200dcd33e635176ca83ddde81b7b7610"><div class="ttname"><a href="game_8h.html#a200dcd33e635176ca83ddde81b7b7610">draw_score</a></div><div class="ttdeci">void draw_score()</div><div class="ttdoc">Draws the current score in the board of the game.</div></div>
-<div class="ttc" id="agame_8h_html_a315e950a7e6bb500fe11c37ee1122577"><div class="ttname"><a href="game_8h.html#a315e950a7e6bb500fe11c37ee1122577">game_main_loop</a></div><div class="ttdeci">int game_main_loop()</div><div class="ttdoc">This function is where the main loop occur. First, all the device interrupts are subscribed ,...</div><div class="ttdef"><b>Definition:</b> game.c:18</div></div>
-<div class="ttc" id="agame_8h_html_a647ccf30a13d3d27a778baf6dcb66669"><div class="ttname"><a href="game_8h.html#a647ccf30a13d3d27a778baf6dcb66669">PlayInterruptHandler</a></div><div class="ttdeci">void PlayInterruptHandler(Device device)</div><div class="ttdoc">Handles the interrupt received from the device , during gamestate 'PLAY'.</div><div class="ttdef"><b>Definition:</b> game.c:186</div></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>void (<a class="code hl_function" href="game_8h.html#a131e5467d9237cc6f15e023be2fbc83e">loadGame</a>)();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="game_8h.html#a80af57db2938c468835bd5530bee459b">   45</a></span>void (<a class="code hl_function" href="game_8h.html#a80af57db2938c468835bd5530bee459b">draw_score</a>)();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keywordtype">void</span> <a class="code hl_function" href="game_8h.html#ad6aa5842f83a37ec1f717498973eab96">draw_sky</a>();</div>
+<div class="ttc" id="agame_8c_html_ae818888612d45a261720e4f82f67bcf9"><div class="ttname"><a href="game_8c.html#ae818888612d45a261720e4f82f67bcf9">pack</a></div><div class="ttdeci">struct packet pack</div><div class="ttdef"><b>Definition:</b> game.c:8</div></div>
+<div class="ttc" id="agame_8h_html_a0b864f673ac845f6a8f8857296285dca"><div class="ttname"><a href="game_8h.html#a0b864f673ac845f6a8f8857296285dca">GeneralInterrupt</a></div><div class="ttdeci">void GeneralInterrupt(Device device)</div><div class="ttdef"><b>Definition:</b> game.c:126</div></div>
+<div class="ttc" id="agame_8h_html_a131e5467d9237cc6f15e023be2fbc83e"><div class="ttname"><a href="game_8h.html#a131e5467d9237cc6f15e023be2fbc83e">loadGame</a></div><div class="ttdeci">void() loadGame()</div><div class="ttdef"><b>Definition:</b> game.c:227</div></div>
+<div class="ttc" id="agame_8h_html_a647ccf30a13d3d27a778baf6dcb66669"><div class="ttname"><a href="game_8h.html#a647ccf30a13d3d27a778baf6dcb66669">PlayInterruptHandler</a></div><div class="ttdeci">void PlayInterruptHandler(Device device)</div><div class="ttdef"><b>Definition:</b> game.c:185</div></div>
 <div class="ttc" id="agame_8h_html_a7899b65f1ea0f655e4bbf8d2a5714285"><div class="ttname"><a href="game_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285">GameState</a></div><div class="ttdeci">GameState</div><div class="ttdef"><b>Definition:</b> game.h:10</div></div>
 <div class="ttc" id="agame_8h_html_a7899b65f1ea0f655e4bbf8d2a5714285a0352906d1ea1dfcd663c918f3a86755b"><div class="ttname"><a href="game_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a0352906d1ea1dfcd663c918f3a86755b">PLAY</a></div><div class="ttdeci">@ PLAY</div><div class="ttdef"><b>Definition:</b> game.h:10</div></div>
 <div class="ttc" id="agame_8h_html_a7899b65f1ea0f655e4bbf8d2a5714285a339435bd0d4a842c6107333c908a5317"><div class="ttname"><a href="game_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a339435bd0d4a842c6107333c908a5317">LOST</a></div><div class="ttdeci">@ LOST</div><div class="ttdef"><b>Definition:</b> game.h:10</div></div>
@@ -115,14 +122,19 @@ $(function() {
 <div class="ttc" id="agame_8h_html_a7899b65f1ea0f655e4bbf8d2a5714285a793562cbf5bffacba71303cee907ef7d"><div class="ttname"><a href="game_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a793562cbf5bffacba71303cee907ef7d">SAVE</a></div><div class="ttdeci">@ SAVE</div><div class="ttdef"><b>Definition:</b> game.h:10</div></div>
 <div class="ttc" id="agame_8h_html_a7899b65f1ea0f655e4bbf8d2a5714285a7a10b5d68d31711288e1fe0fa17dbf4f"><div class="ttname"><a href="game_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a7a10b5d68d31711288e1fe0fa17dbf4f">EXIT</a></div><div class="ttdeci">@ EXIT</div><div class="ttdef"><b>Definition:</b> game.h:10</div></div>
 <div class="ttc" id="agame_8h_html_a7899b65f1ea0f655e4bbf8d2a5714285aedb8021c05603471ad7d382d8288223b"><div class="ttname"><a href="game_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285aedb8021c05603471ad7d382d8288223b">SCOREBOARD</a></div><div class="ttdeci">@ SCOREBOARD</div><div class="ttdef"><b>Definition:</b> game.h:10</div></div>
-<div class="ttc" id="agame_8h_html_a8e659f3e00da3fec7a342b8e2315a0c5"><div class="ttname"><a href="game_8h.html#a8e659f3e00da3fec7a342b8e2315a0c5">numbers_img</a></div><div class="ttdeci">xpm_image_t numbers_img[10]</div><div class="ttdef"><b>Definition:</b> game.h:26</div></div>
-<div class="ttc" id="agame_8h_html_a907cfdcea783b671613f38e54ac75add"><div class="ttname"><a href="game_8h.html#a907cfdcea783b671613f38e54ac75add">mouse_events</a></div><div class="ttdeci">struct mouse_ev * mouse_events(struct packet *pack)</div><div class="ttdoc">checks the mouse packet received in the argument, in order to return what event occured in the mouse</div><div class="ttdef"><b>Definition:</b> game.c:150</div></div>
-<div class="ttc" id="agame_8h_html_ab31643a884d56d21baa151f155d93b26"><div class="ttname"><a href="game_8h.html#ab31643a884d56d21baa151f155d93b26">loadGame</a></div><div class="ttdeci">void loadGame()</div><div class="ttdoc">Loads the XPMs needed for the gameState 'PLAY'.</div><div class="ttdef"><b>Definition:</b> game.c:227</div></div>
+<div class="ttc" id="agame_8h_html_a80af57db2938c468835bd5530bee459b"><div class="ttname"><a href="game_8h.html#a80af57db2938c468835bd5530bee459b">draw_score</a></div><div class="ttdeci">void() draw_score()</div></div>
+<div class="ttc" id="agame_8h_html_a8e659f3e00da3fec7a342b8e2315a0c5"><div class="ttname"><a href="game_8h.html#a8e659f3e00da3fec7a342b8e2315a0c5">numbers_img</a></div><div class="ttdeci">xpm_image_t numbers_img[10]</div><div class="ttdef"><b>Definition:</b> game.h:29</div></div>
+<div class="ttc" id="agame_8h_html_a907cfdcea783b671613f38e54ac75add"><div class="ttname"><a href="game_8h.html#a907cfdcea783b671613f38e54ac75add">mouse_events</a></div><div class="ttdeci">struct mouse_ev * mouse_events(struct packet *pack)</div><div class="ttdef"><b>Definition:</b> game.c:149</div></div>
+<div class="ttc" id="agame_8h_html_aa1e173e1f6d04687d6d9eb336f0edd8d"><div class="ttname"><a href="game_8h.html#aa1e173e1f6d04687d6d9eb336f0edd8d">night_img</a></div><div class="ttdeci">xpm_image_t night_img</div><div class="ttdef"><b>Definition:</b> game.h:32</div></div>
+<div class="ttc" id="agame_8h_html_ad6aa5842f83a37ec1f717498973eab96"><div class="ttname"><a href="game_8h.html#ad6aa5842f83a37ec1f717498973eab96">draw_sky</a></div><div class="ttdeci">void draw_sky()</div><div class="ttdef"><b>Definition:</b> game.c:263</div></div>
+<div class="ttc" id="agame_8h_html_adad7d2c2da5ca630461f527409fa416d"><div class="ttname"><a href="game_8h.html#adad7d2c2da5ca630461f527409fa416d">day_img</a></div><div class="ttdeci">xpm_image_t day_img</div><div class="ttdef"><b>Definition:</b> game.h:30</div></div>
 <div class="ttc" id="agame_8h_html_adb53a8cc97236ca207c035241a5b7fb8"><div class="ttname"><a href="game_8h.html#adb53a8cc97236ca207c035241a5b7fb8">Device</a></div><div class="ttdeci">Device</div><div class="ttdef"><b>Definition:</b> game.h:8</div></div>
 <div class="ttc" id="agame_8h_html_adb53a8cc97236ca207c035241a5b7fb8a17ba9bae1b8d7e8d6c12d46ec58e0769"><div class="ttname"><a href="game_8h.html#adb53a8cc97236ca207c035241a5b7fb8a17ba9bae1b8d7e8d6c12d46ec58e0769">TIMER</a></div><div class="ttdeci">@ TIMER</div><div class="ttdef"><b>Definition:</b> game.h:8</div></div>
 <div class="ttc" id="agame_8h_html_adb53a8cc97236ca207c035241a5b7fb8a24073a11916b946561b8cb5c9dfe9bce"><div class="ttname"><a href="game_8h.html#adb53a8cc97236ca207c035241a5b7fb8a24073a11916b946561b8cb5c9dfe9bce">RTC</a></div><div class="ttdeci">@ RTC</div><div class="ttdef"><b>Definition:</b> game.h:8</div></div>
 <div class="ttc" id="agame_8h_html_adb53a8cc97236ca207c035241a5b7fb8a6abd13b0a6bf7894c7ceb5ff45ddbc14"><div class="ttname"><a href="game_8h.html#adb53a8cc97236ca207c035241a5b7fb8a6abd13b0a6bf7894c7ceb5ff45ddbc14">MOUSE</a></div><div class="ttdeci">@ MOUSE</div><div class="ttdef"><b>Definition:</b> game.h:8</div></div>
 <div class="ttc" id="agame_8h_html_adb53a8cc97236ca207c035241a5b7fb8ad14e2514427609da194a72091721f4c7"><div class="ttname"><a href="game_8h.html#adb53a8cc97236ca207c035241a5b7fb8ad14e2514427609da194a72091721f4c7">KEYBOARD</a></div><div class="ttdeci">@ KEYBOARD</div><div class="ttdef"><b>Definition:</b> game.h:8</div></div>
+<div class="ttc" id="agame_8h_html_afc4f9db59cc541b5879bafa2d32d9063"><div class="ttname"><a href="game_8h.html#afc4f9db59cc541b5879bafa2d32d9063">afternoon_img</a></div><div class="ttdeci">xpm_image_t afternoon_img</div><div class="ttdef"><b>Definition:</b> game.h:31</div></div>
+<div class="ttc" id="agame_8h_html_afe902ca09bf015ddf076a6661dcd9595"><div class="ttname"><a href="game_8h.html#afe902ca09bf015ddf076a6661dcd9595">game_main_loop</a></div><div class="ttdeci">int() game_main_loop()</div><div class="ttdef"><b>Definition:</b> game.c:19</div></div>
 <div class="ttc" id="agrass_8h_html"><div class="ttname"><a href="grass_8h.html">grass.h</a></div></div>
 <div class="ttc" id="ai8042_8h_html"><div class="ttname"><a href="i8042_8h.html">i8042.h</a></div></div>
 <div class="ttc" id="akeyboard_8h_html"><div class="ttname"><a href="keyboard_8h.html">keyboard.h</a></div></div>

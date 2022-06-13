@@ -1,8 +1,0 @@
-<map id="loadMainMenu" name="loadMainMenu">
-<area shape="rect" id="node1" title="loads the XPMs of the menus (including mouse cursor) and draws the menu and the mouse cursor" alt="" coords="5,56,112,83"/>
-<area shape="rect" id="node2" href="$mouse_8c.html#a4cd021d8fa893cbe887a9c45d6d86ab7" title="Create a cursor object." alt="" coords="208,5,309,32"/>
-<area shape="rect" id="node3" href="$mouse_8c.html#a608343c0c4fb70cff0ccd951d5d98b2a" title="draw the cursor on the screen" alt="" coords="213,56,305,83"/>
-<area shape="rect" id="node6" href="$menu_8c.html#ac6ed9d7465cbc5b560b80bf51d6e7e11" title="draws the menu" alt="" coords="160,107,357,133"/>
-<area shape="rect" id="node4" href="$video__gr_8c.html#a843bebd62d0bad661abfa8c25a58de93" title="draws a xpm on the screen" alt="" coords="405,81,487,108"/>
-<area shape="rect" id="node5" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title="draws a pixel on the screen" alt="" coords="535,81,637,108"/>
-</map>

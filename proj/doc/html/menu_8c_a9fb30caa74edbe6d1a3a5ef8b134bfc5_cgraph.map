@@ -1,10 +1,10 @@
 <map id="ScoreBoardInterruptHandler" name="ScoreBoardInterruptHandler">
 <area shape="rect" id="node1" title=" " alt="" coords="5,31,187,57"/>
-<area shape="rect" id="node2" href="$video__gr_8c.html#a938b631c736c08bc3dcd34e8f816f2be" title="deletes a xpm from the screen" alt="" coords="635,5,724,32"/>
-<area shape="rect" id="node4" href="$menu_8c.html#aad5187e1fb5aaeb32d0f92d0a2bc929d" title="loads the XPMs of the menus (including mouse cursor) and draws the menu and the mouse cursor" alt="" coords="235,56,341,83"/>
-<area shape="rect" id="node3" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title="draws a pixel on the screen" alt="" coords="772,56,875,83"/>
-<area shape="rect" id="node5" href="$mouse_8c.html#a4cd021d8fa893cbe887a9c45d6d86ab7" title="Create a cursor object." alt="" coords="437,31,539,57"/>
-<area shape="rect" id="node6" href="$mouse_8c.html#a608343c0c4fb70cff0ccd951d5d98b2a" title="draw the cursor on the screen" alt="" coords="442,81,534,108"/>
-<area shape="rect" id="node8" href="$menu_8c.html#ac6ed9d7465cbc5b560b80bf51d6e7e11" title="draws the menu" alt="" coords="389,132,587,159"/>
-<area shape="rect" id="node7" href="$video__gr_8c.html#a843bebd62d0bad661abfa8c25a58de93" title="draws a xpm on the screen" alt="" coords="639,81,720,108"/>
+<area shape="rect" id="node2" href="$video__gr_8c.html#a938b631c736c08bc3dcd34e8f816f2be" title=" " alt="" coords="635,5,724,32"/>
+<area shape="rect" id="node4" href="$menu_8c.html#aad5187e1fb5aaeb32d0f92d0a2bc929d" title=" " alt="" coords="235,56,341,83"/>
+<area shape="rect" id="node3" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title=" " alt="" coords="772,56,875,83"/>
+<area shape="rect" id="node5" href="$mouse_8c.html#a4cd021d8fa893cbe887a9c45d6d86ab7" title=" " alt="" coords="437,31,539,57"/>
+<area shape="rect" id="node6" href="$mouse_8c.html#a608343c0c4fb70cff0ccd951d5d98b2a" title=" " alt="" coords="442,81,534,108"/>
+<area shape="rect" id="node8" href="$menu_8c.html#ac6ed9d7465cbc5b560b80bf51d6e7e11" title=" " alt="" coords="389,132,587,159"/>
+<area shape="rect" id="node7" href="$video__gr_8c.html#a843bebd62d0bad661abfa8c25a58de93" title=" " alt="" coords="639,81,720,108"/>
 </map>

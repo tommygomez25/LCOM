@@ -1,5 +1,0 @@
-<map id="rtc_ih" name="rtc_ih">
-<area shape="rect" id="node1" title="handles rtc interrupts" alt="" coords="5,5,60,32"/>
-<area shape="rect" id="node2" href="$rtc_8c.html#a45b69b5ef64522915c39cf4663c93485" title="reads a register from the rtc" alt="" coords="108,5,177,32"/>
-<area shape="rect" id="node3" href="$rtc_8c.html#a80d6e0affa6715223666c14de18f9ad1" title="sees if there is an update in progress on the rtc" alt="" coords="225,5,327,32"/>
-</map>

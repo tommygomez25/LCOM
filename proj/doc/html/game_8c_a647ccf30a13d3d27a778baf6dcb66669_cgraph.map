@@ -1,16 +1,16 @@
 <map id="PlayInterruptHandler" name="PlayInterruptHandler">
-<area shape="rect" id="node1" title="Handles the interrupt received from the device , during gamestate &#39;PLAY&#39;." alt="" coords="5,208,144,235"/>
-<area shape="rect" id="node2" href="$snake_8c.html#af479f58f95649994ddc21711f2358bdf" title="checks if there is a collision between the snake and an apple" alt="" coords="192,5,383,32"/>
-<area shape="rect" id="node3" href="$snake_8c.html#a84e330e5b0343d95c58c209c75bbdaa0" title="defines snake body sprite depending on the snake type of movement" alt="" coords="201,56,373,83"/>
-<area shape="rect" id="node4" href="$snake_8c.html#a71ed1486b0305007de715d19e3d326b6" title="defines what sprite to be used depending on the snake type of movement" alt="" coords="207,107,368,133"/>
-<area shape="rect" id="node5" href="$apple_8c.html#ab7db602b92bb5aac8acef76d0f054841" title="draws the apple in the game board" alt="" coords="244,208,331,235"/>
-<area shape="rect" id="node9" href="$grass_8c.html#a82b123023e5f526ec9be48b67a679e96" title="draws the grass in the game board" alt="" coords="432,259,520,285"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,233,144,260"/>
+<area shape="rect" id="node2" href="$snake_8c.html#af479f58f95649994ddc21711f2358bdf" title=" " alt="" coords="192,5,383,32"/>
+<area shape="rect" id="node3" href="$snake_8c.html#a84e330e5b0343d95c58c209c75bbdaa0" title=" " alt="" coords="201,56,373,83"/>
+<area shape="rect" id="node4" href="$snake_8c.html#a71ed1486b0305007de715d19e3d326b6" title=" " alt="" coords="207,107,368,133"/>
+<area shape="rect" id="node5" href="$apple_8c.html#ab7db602b92bb5aac8acef76d0f054841" title=" " alt="" coords="244,157,331,184"/>
+<area shape="rect" id="node9" href="$grass_8c.html#a82b123023e5f526ec9be48b67a679e96" title=" " alt="" coords="432,208,520,235"/>
 <area shape="rect" id="node10" href="$game_8c.html#acc84e6b574bc58c64217355f06dbe395" title=" " alt="" coords="432,360,520,387"/>
-<area shape="rect" id="node12" href="$snake_8c.html#a2a792507ffcbc0b1674663fdd2912146" title="draws the snake on the screen" alt="" coords="431,107,521,133"/>
-<area shape="rect" id="node13" href="$menu_8c.html#acdcb78551c70b53840dc99e98c64e9b9" title="loads the screen of the state &#39;GAME&#39;" alt="" coords="236,309,339,336"/>
-<area shape="rect" id="node14" href="$snake_8c.html#a8f1b6546e889c2cf2e1d72f3b5b7caaf" title="updates snake size and head img" alt="" coords="203,411,372,437"/>
-<area shape="rect" id="node6" href="$video__gr_8c.html#a843bebd62d0bad661abfa8c25a58de93" title="draws a xpm on the screen" alt="" coords="573,284,655,311"/>
-<area shape="rect" id="node8" href="$apple_8c.html#ace2ad30113430906b4f158be7492cde0" title="generates x and y coordenates for the apple" alt="" coords="431,157,521,184"/>
-<area shape="rect" id="node7" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title="draws a pixel on the screen" alt="" coords="707,309,809,336"/>
-<area shape="rect" id="node11" href="$video__gr_8c.html#a938b631c736c08bc3dcd34e8f816f2be" title="deletes a xpm from the screen" alt="" coords="569,335,659,361"/>
+<area shape="rect" id="node11" href="$game_8c.html#ad6aa5842f83a37ec1f717498973eab96" title=" " alt="" coords="437,259,515,285"/>
+<area shape="rect" id="node12" href="$snake_8c.html#a2a792507ffcbc0b1674663fdd2912146" title=" " alt="" coords="431,411,521,437"/>
+<area shape="rect" id="node13" href="$menu_8c.html#acdcb78551c70b53840dc99e98c64e9b9" title=" " alt="" coords="236,309,339,336"/>
+<area shape="rect" id="node14" href="$snake_8c.html#a8f1b6546e889c2cf2e1d72f3b5b7caaf" title=" " alt="" coords="203,461,372,488"/>
+<area shape="rect" id="node6" href="$video__gr_8c.html#a843bebd62d0bad661abfa8c25a58de93" title=" " alt="" coords="569,284,651,311"/>
+<area shape="rect" id="node8" href="$apple_8c.html#ace2ad30113430906b4f158be7492cde0" title=" " alt="" coords="431,107,521,133"/>
+<area shape="rect" id="node7" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title=" " alt="" coords="699,284,801,311"/>
 </map>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Snake: rtc.h Source File</title>
+<title>Snake Project for LC: rtc.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Snake
+   <div id="projectname">Snake Project for LC
    </div>
   </td>
  </tr>
@@ -103,30 +103,26 @@ $(function() {
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="rtc_8h.html#ad9daeab3b1a62b3c1ffca1faf5d00e42">   37</a></span><span class="preprocessor">#define RTC_D 13</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keywordtype">int</span> <a class="code hl_function" href="rtc_8h.html#a5171a9c0f54940fe60f7500896afcc86">rtc_subscribe_int</a>(uint8_t *bit_no);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>int (<a class="code hl_function" href="rtc_8h.html#a6bbe679f115cec90d36d50eb2aac1b89">rtc_subscribe_int</a>)(uint8_t *bit_no);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>int (<a class="code hl_function" href="rtc_8h.html#a9d4850bb2a488644672d43287f160622">rtc_unsubscribe_int</a>)();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>void (<a class="code hl_function" href="rtc_8h.html#a0b9ae809cf571f61e54712a23c65348e">rtc_ih</a>)();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keywordtype">int</span> <a class="code hl_function" href="rtc_8h.html#a45b69b5ef64522915c39cf4663c93485">rtc_read</a>(uint8_t reg);</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">int</span> <a class="code hl_function" href="rtc_8h.html#ab8f17bf5280c908c8b199a90fefcc758">rtc_unsubscribe_int</a>();</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keywordtype">void</span> <a class="code hl_function" href="rtc_8h.html#a75dad42881d64cf07cf1bdc2979a7056">rtc_ih</a>();</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">int</span> <a class="code hl_function" href="rtc_8h.html#a45b69b5ef64522915c39cf4663c93485">rtc_read</a>(uint8_t reg);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="rtc_8h.html#a168d83812ddd6d0e444e487d65414b72">   77</a></span>uint8_t <a class="code hl_function" href="rtc_8h.html#a168d83812ddd6d0e444e487d65414b72">convert_from_binary</a> (uint8_t bcdNum);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keywordtype">void</span> <a class="code hl_function" href="rtc_8h.html#aa28561c0bf3a1a1a98a2b99091bc435e">print_clock</a>();</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keywordtype">int</span> <a class="code hl_function" href="rtc_8h.html#a80d6e0affa6715223666c14de18f9ad1">wait_regA_rtc</a>();</div>
-<div class="ttc" id="artc_8h_html_a168d83812ddd6d0e444e487d65414b72"><div class="ttname"><a href="rtc_8h.html#a168d83812ddd6d0e444e487d65414b72">convert_from_binary</a></div><div class="ttdeci">uint8_t convert_from_binary(uint8_t bcdNum)</div><div class="ttdoc">converts a number from binary to decimal</div></div>
-<div class="ttc" id="artc_8h_html_a45b69b5ef64522915c39cf4663c93485"><div class="ttname"><a href="rtc_8h.html#a45b69b5ef64522915c39cf4663c93485">rtc_read</a></div><div class="ttdeci">int rtc_read(uint8_t reg)</div><div class="ttdoc">reads a register from the rtc</div><div class="ttdef"><b>Definition:</b> rtc.c:103</div></div>
-<div class="ttc" id="artc_8h_html_a5171a9c0f54940fe60f7500896afcc86"><div class="ttname"><a href="rtc_8h.html#a5171a9c0f54940fe60f7500896afcc86">rtc_subscribe_int</a></div><div class="ttdeci">int rtc_subscribe_int(uint8_t *bit_no)</div><div class="ttdoc">Subscribes rtc interrupts, defines the corresponding interrupt source (UIE) and sets the date/time re...</div><div class="ttdef"><b>Definition:</b> rtc.c:8</div></div>
-<div class="ttc" id="artc_8h_html_a75dad42881d64cf07cf1bdc2979a7056"><div class="ttname"><a href="rtc_8h.html#a75dad42881d64cf07cf1bdc2979a7056">rtc_ih</a></div><div class="ttdeci">void rtc_ih()</div><div class="ttdoc">handles rtc interrupts</div><div class="ttdef"><b>Definition:</b> rtc.c:85</div></div>
-<div class="ttc" id="artc_8h_html_a80d6e0affa6715223666c14de18f9ad1"><div class="ttname"><a href="rtc_8h.html#a80d6e0affa6715223666c14de18f9ad1">wait_regA_rtc</a></div><div class="ttdeci">int wait_regA_rtc()</div><div class="ttdoc">sees if there is an update in progress on the rtc</div><div class="ttdef"><b>Definition:</b> rtc.c:61</div></div>
-<div class="ttc" id="artc_8h_html_aa28561c0bf3a1a1a98a2b99091bc435e"><div class="ttname"><a href="rtc_8h.html#aa28561c0bf3a1a1a98a2b99091bc435e">print_clock</a></div><div class="ttdeci">void print_clock()</div><div class="ttdoc">prints the actual date and time</div><div class="ttdef"><b>Definition:</b> rtc.c:154</div></div>
-<div class="ttc" id="artc_8h_html_ab8f17bf5280c908c8b199a90fefcc758"><div class="ttname"><a href="rtc_8h.html#ab8f17bf5280c908c8b199a90fefcc758">rtc_unsubscribe_int</a></div><div class="ttdeci">int rtc_unsubscribe_int()</div><div class="ttdoc">Unsubscribes rtc interrupts.</div><div class="ttdef"><b>Definition:</b> rtc.c:35</div></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="rtc_8h.html#a168d83812ddd6d0e444e487d65414b72">   47</a></span>uint8_t <a class="code hl_function" href="rtc_8h.html#a168d83812ddd6d0e444e487d65414b72">convert_from_binary</a> (uint8_t bcdNum);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keywordtype">void</span> <a class="code hl_function" href="rtc_8h.html#aa28561c0bf3a1a1a98a2b99091bc435e">print_clock</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">int</span> <a class="code hl_function" href="rtc_8h.html#a80d6e0affa6715223666c14de18f9ad1">wait_regA_rtc</a>();</div>
+<div class="ttc" id="artc_8h_html_a0b9ae809cf571f61e54712a23c65348e"><div class="ttname"><a href="rtc_8h.html#a0b9ae809cf571f61e54712a23c65348e">rtc_ih</a></div><div class="ttdeci">void() rtc_ih()</div><div class="ttdef"><b>Definition:</b> rtc.c:85</div></div>
+<div class="ttc" id="artc_8h_html_a168d83812ddd6d0e444e487d65414b72"><div class="ttname"><a href="rtc_8h.html#a168d83812ddd6d0e444e487d65414b72">convert_from_binary</a></div><div class="ttdeci">uint8_t convert_from_binary(uint8_t bcdNum)</div></div>
+<div class="ttc" id="artc_8h_html_a45b69b5ef64522915c39cf4663c93485"><div class="ttname"><a href="rtc_8h.html#a45b69b5ef64522915c39cf4663c93485">rtc_read</a></div><div class="ttdeci">int rtc_read(uint8_t reg)</div><div class="ttdef"><b>Definition:</b> rtc.c:103</div></div>
+<div class="ttc" id="artc_8h_html_a6bbe679f115cec90d36d50eb2aac1b89"><div class="ttname"><a href="rtc_8h.html#a6bbe679f115cec90d36d50eb2aac1b89">rtc_subscribe_int</a></div><div class="ttdeci">int() rtc_subscribe_int(uint8_t *bit_no)</div><div class="ttdef"><b>Definition:</b> rtc.c:8</div></div>
+<div class="ttc" id="artc_8h_html_a80d6e0affa6715223666c14de18f9ad1"><div class="ttname"><a href="rtc_8h.html#a80d6e0affa6715223666c14de18f9ad1">wait_regA_rtc</a></div><div class="ttdeci">int wait_regA_rtc()</div><div class="ttdef"><b>Definition:</b> rtc.c:61</div></div>
+<div class="ttc" id="artc_8h_html_a9d4850bb2a488644672d43287f160622"><div class="ttname"><a href="rtc_8h.html#a9d4850bb2a488644672d43287f160622">rtc_unsubscribe_int</a></div><div class="ttdeci">int() rtc_unsubscribe_int()</div><div class="ttdef"><b>Definition:</b> rtc.c:35</div></div>
+<div class="ttc" id="artc_8h_html_aa28561c0bf3a1a1a98a2b99091bc435e"><div class="ttname"><a href="rtc_8h.html#aa28561c0bf3a1a1a98a2b99091bc435e">print_clock</a></div><div class="ttdeci">void print_clock()</div><div class="ttdef"><b>Definition:</b> rtc.c:154</div></div>
 <div class="ttc" id="autils_8h_html"><div class="ttname"><a href="utils_8h.html">utils.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

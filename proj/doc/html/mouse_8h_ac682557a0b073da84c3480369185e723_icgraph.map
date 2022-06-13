@@ -1,7 +1,0 @@
-<map id="mouse_write_cmd" name="mouse_write_cmd">
-<area shape="rect" id="node1" title="Write a command to mouse." alt="" coords="557,42,684,69"/>
-<area shape="rect" id="node2" href="$mouse_8c.html#a96841fd4b45902aa9e1124a8b1814e3b" title="Disables mouse data reporting." alt="" coords="349,5,491,47"/>
-<area shape="rect" id="node5" href="$mouse_8c.html#a74456022e2b29fbc3741dc59bd5033be" title="Enables mouse data reporting." alt="" coords="331,71,509,98"/>
-<area shape="rect" id="node3" href="$game_8c.html#afe902ca09bf015ddf076a6661dcd9595" title="This function is where the main loop occur. First, all the device interrupts are subscribed ,..." alt="" coords="163,42,283,69"/>
-<area shape="rect" id="node4" href="$proj_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,42,115,69"/>
-</map>

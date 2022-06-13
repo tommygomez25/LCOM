@@ -1,4 +1,0 @@
-<map id="game_main_loop" name="game_main_loop">
-<area shape="rect" id="node1" title="This function is where the main loop occur. First, all the device interrupts are subscribed ,..." alt="" coords="163,5,283,32"/>
-<area shape="rect" id="node2" href="$proj_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,5,115,32"/>
-</map>

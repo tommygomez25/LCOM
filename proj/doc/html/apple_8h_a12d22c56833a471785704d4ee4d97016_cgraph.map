@@ -1,6 +1,0 @@
-<map id="draw_apple" name="draw_apple">
-<area shape="rect" id="node1" title="draws the apple in the game board" alt="" coords="5,31,92,57"/>
-<area shape="rect" id="node2" href="$video__gr_8c.html#a843bebd62d0bad661abfa8c25a58de93" title="draws a xpm on the screen" alt="" coords="145,5,226,32"/>
-<area shape="rect" id="node4" href="$apple_8c.html#ace2ad30113430906b4f158be7492cde0" title="generates x and y coordenates for the apple" alt="" coords="140,56,231,83"/>
-<area shape="rect" id="node3" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title="draws a pixel on the screen" alt="" coords="279,5,381,32"/>
-</map>

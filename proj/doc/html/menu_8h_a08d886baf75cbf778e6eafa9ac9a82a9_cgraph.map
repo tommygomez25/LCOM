@@ -1,7 +1,7 @@
 <map id="GameLostInterruptHandler" name="GameLostInterruptHandler">
-<area shape="rect" id="node1" title="handles interrupt received mainly from keyboard when the game is lost ( if ESC is pressed,..." alt="" coords="5,31,179,57"/>
-<area shape="rect" id="node2" href="$video__gr_8c.html#a938b631c736c08bc3dcd34e8f816f2be" title="deletes a xpm from the screen" alt="" coords="381,5,471,32"/>
-<area shape="rect" id="node4" href="$menu_8c.html#a086b510511d28f58b281947a4b8d074f" title="load the screen of the state &#39;SAVE&#39;" alt="" coords="227,56,333,83"/>
-<area shape="rect" id="node3" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title="draws a pixel on the screen" alt="" coords="519,31,621,57"/>
-<area shape="rect" id="node5" href="$video__gr_8c.html#a843bebd62d0bad661abfa8c25a58de93" title="draws a xpm on the screen" alt="" coords="385,56,467,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,179,57"/>
+<area shape="rect" id="node2" href="$video__gr_8c.html#a938b631c736c08bc3dcd34e8f816f2be" title=" " alt="" coords="381,5,471,32"/>
+<area shape="rect" id="node4" href="$menu_8c.html#a086b510511d28f58b281947a4b8d074f" title=" " alt="" coords="227,56,333,83"/>
+<area shape="rect" id="node3" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title=" " alt="" coords="519,31,621,57"/>
+<area shape="rect" id="node5" href="$video__gr_8c.html#a843bebd62d0bad661abfa8c25a58de93" title=" " alt="" coords="385,56,467,83"/>
 </map>
