@@ -29,22 +29,59 @@ typedef struct {
     xpm_image_t img;
 } snakepart;
 
+/**
+ * @brief Create a snake object
+ * 
+ */
 void create_snake();
 
+/**
+ * @brief Create a snake tail object
+ * 
+ */
 void create_snake_tail();
 
+/**
+ * @brief Create a snake body object
+ * 
+ */
 void create_snake_body();
 
+/**
+ * @brief Create a snake head object
+ * 
+ */
 void create_snake_head();
 
+/**
+ * @brief draws the snake on the screen
+ * 
+ */
 void draw_snake();
 
+/**
+ * @brief checks if there is a collision between the snake and an apple
+ * 
+ * @param apple1 apple 
+ */
 void check_snake_apple_collision(apple* apple1);
 
+/**
+ * @brief defines what sprite to be used depending on the snake type of movement
+ * 
+ */
 void define_snake_tail_sprite();
 
+/**
+ * @brief updates snake size and head img
+ * 
+ */
 void snake_update_movement();
 
+/**
+ * @brief defines snake body sprite depending on the snake type of movement 
+ * 
+ */
 void define_snake_body_sprite();
 
 
