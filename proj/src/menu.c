@@ -357,7 +357,7 @@ void draw_number(char *number,int liney){
 }
 void draw_name(char *name,int liney){
   int index = 0;
-  int linex = 400;
+  int linex = 450;
   while(name[index]!='\0'){
     printf("%c\n",name[index]);
     if(name[index]=='a'){
