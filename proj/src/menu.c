@@ -109,9 +109,6 @@ void MainMenuInterruptHandler(Device device) {
       break;
     case RTC:
       print_clock();
-      // clean_clock();
-      // updateDateTime();
-      // draw_clock();
       break;
   }
 
@@ -128,7 +125,7 @@ void MainMenuInterruptHandler(Device device) {
       wordletter[i]='\0';
     }
     loadGame();
-
+    printf("loaded game\n");
     return;
   }
 
@@ -137,8 +134,6 @@ void MainMenuInterruptHandler(Device device) {
     draw_scoreboard();
     return;
   }
-  // else
-  // return;*/
 }
 
 void ScoreBoardInterruptHandler(Device device) {
@@ -343,7 +338,7 @@ void draw_scoreboard(){
       number[i] = '\0';
     }
     
-    liney+=40;
+    liney+=45;
   }
     
   fclose(fp);
@@ -362,7 +357,7 @@ void draw_number(char *number,int liney){
 }
 void draw_name(char *name,int liney){
   int index = 0;
-  int linex = 550;
+  int linex = 400;
   while(name[index]!='\0'){
     printf("%c\n",name[index]);
     if(name[index]=='a'){
