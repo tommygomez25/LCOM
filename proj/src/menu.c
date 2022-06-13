@@ -128,6 +128,7 @@ void MainMenuInterruptHandler(Device device) {
       wordletter[i]='\0';
     }
     loadGame();
+
     return;
   }
 

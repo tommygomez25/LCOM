@@ -9,6 +9,16 @@ typedef struct {
     xpm_image_t img;
 } grass;
 
-void (create_grass)();
+/**
+ * @brief allocates memory for the background grass in the game board, loads the xpm of the grass and initializes the grass position
+ * 
+ */
 
-void (draw_grass)();
+void create_grass();
+
+/**
+ * @brief draws the grass in the game board
+ * 
+ */
+
+void draw_grass();

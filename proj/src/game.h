@@ -25,15 +25,48 @@ typedef enum {MAINMENU,PLAY, LOST, SAVE, SCOREBOARD, EXIT} GameState;
 
 xpm_image_t numbers_img[10];
 
-int (game_main_loop)();
+/**
+ * @brief This function is where the main loop occur. First, all the device interrupts are subscribed , then there is a loop to see what device generated the interrupt.
+ * @return 1 if an error occured, 0 otherwise
+ */
+
+int game_main_loop();
+
+/**
+ * @brief This function receives a device interrupt and depending on the game state of the game, calls the right function to handle the interrupt.
+ * 
+ * @param device Device that generated the interrupt.
+ */
 
 void GeneralInterrupt(Device device);
 
+/**
+ * @brief checks the mouse packet received in the argument, in order to return what event occured in the mouse
+ * 
+ * @param pack pack of the mouse
+ * @return struct mouse_ev* Type of the event occured in the mouse
+ */
+
 struct mouse_ev * mouse_events(struct packet * pack);
+
+/**
+ * @brief Handles the interrupt received from the device , during gamestate  'PLAY'
+ * 
+ * @param device Device that generated the interrupt
+ */
 
 void PlayInterruptHandler(Device device);
 
+/**
+ * @brief Loads the XPMs needed for the gameState 'PLAY'
+ * 
+ */
 
-void (loadGame)();
+void loadGame();
 
-void (draw_score)();
+/**
+ * @brief Draws the current score in the board of the game
+ * 
+ */
+
+void draw_score();

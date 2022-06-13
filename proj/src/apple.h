@@ -10,8 +10,22 @@ typedef struct {
     int counter;
 } apple;
 
-void (create_apple)();
+/**
+ * @brief allocates memory for an apple, loads the xpm of the apple and initializes the apple position
+ * 
+ */
 
-void (draw_apple)();
+void create_apple();
 
-void(move_apple)();
+/**
+ * @brief draws the apple in the game board
+ * 
+ */
+
+void draw_apple();
+
+/**
+ * @brief generates x and y coordenates for the apple
+ * 
+ */
+void move_apple();

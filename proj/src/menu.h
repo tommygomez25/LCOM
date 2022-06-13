@@ -49,34 +49,82 @@ xpm_image_t x;
 xpm_image_t y;
 xpm_image_t z;
 
-typedef struct {
-    int x, y;
-    xpm_image_t img;
-} Letter;
+/**
+ * @brief loads the XPMs of the menus (including mouse cursor) and draws the menu and the mouse cursor
+ * 
+ */
+void loadMainMenu();
 
-void (loadMainMenu)();
+/**
+ * @brief draws the menu
+ * 
+ */
+void draw_main_menu_background();
 
-void (draw_main_menu_background)();
-
+/**
+ * @brief This function handles an interrupt received from a device. Updates the cursor position, draws the updated image and checks if the mouse cursor collided with a button.
+ * Changes the game state depending on the button clicked.
+ * 
+ * @param device Device that generated the interrupt
+ */
 void MainMenuInterruptHandler(Device device);
 
+/**
+ * @brief handles interrupt received mainly from keyboard when the game is lost ( if ESC is pressed, return to main menu)
+ * 
+ * @param device 
+ */
 void GameLostInterruptHandler(Device device);
-void SaveInterruptHandler(Device device);
+
 void ScoreBoardInterruptHandler(Device device);
 
-void (loadLostMenu)();
+void SaveInterruptHandler(Device device) ;
 
-void (savescore)(int score, char* name);
-void (loadSaveMenu)();
+/**
+ * @brief loads the screen of the state 'GAME'
+ * 
+ */
+void loadLostMenu();
 
-void (letterhandle)(uint8_t lastletter);
+/**
+ * @brief load the screen of the state 'SAVE'
+ * 
+ */
+void loadSaveMenu();
 
+/**
+ * @brief 
+ * 
+ * @param score 
+ * @param name 
+ */
+void savescore(int score, char* name);
+
+/**
+ * @brief loads all the XPMs related to letters. Reads the highscores.txt file and draws on the screen the data that was read from the file (scoreboard)
+ * 
+ */
 void draw_scoreboard();
 
+/**
+ * @brief draws a number on the screen
+ * 
+ * @param number array of digits ( this are the digits of the number)
+ * @param liney y coordenate to draw the number
+ */
 void draw_number(char *number,int liney);
+
+/**
+ * @brief draws a name on the screen
+ * 
+ * @param name array of letters (this are the letters of the name)
+ * @param liney y coordenate to draw the name
+ */
 void draw_name(char *name,int liney);
 
-
-
-
-
+/**
+ * @brief while the user is entering a letter (to enter his name), this function draws the xpm corresponding to that letter.
+ * 
+ * @param lastletter letter that was entered
+ */
+void letterhandle(uint8_t lastletter);
