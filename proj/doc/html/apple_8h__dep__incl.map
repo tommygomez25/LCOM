@@ -1,0 +1,11 @@
+<map id="apple.h" name="apple.h">
+<area shape="rect" id="node1" title=" " alt="" coords="95,5,159,32"/>
+<area shape="rect" id="node2" href="$apple_8c.html" title=" " alt="" coords="50,80,114,107"/>
+<area shape="rect" id="node3" href="$snake_8h.html" title=" " alt="" coords="139,80,207,107"/>
+<area shape="rect" id="node4" href="$game_8h.html" title=" " alt="" coords="95,155,160,181"/>
+<area shape="rect" id="node9" href="$snake_8c.html" title=" " alt="" coords="184,155,252,181"/>
+<area shape="rect" id="node5" href="$game_8c.html" title=" " alt="" coords="5,229,71,256"/>
+<area shape="rect" id="node6" href="$menu_8h.html" title=" " alt="" coords="95,229,160,256"/>
+<area shape="rect" id="node8" href="$proj_8c.html" title=" " alt="" coords="171,304,225,331"/>
+<area shape="rect" id="node7" href="$menu_8c.html" title=" " alt="" coords="81,304,147,331"/>
+</map>

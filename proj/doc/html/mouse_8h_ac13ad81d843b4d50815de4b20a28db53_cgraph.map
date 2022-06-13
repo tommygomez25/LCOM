@@ -1,0 +1,5 @@
+<map id="mouse_disable_data_report" name="mouse_disable_data_report">
+<area shape="rect" id="node1" title="Disables mouse data reporting." alt="" coords="5,5,147,47"/>
+<area shape="rect" id="node2" href="$mouse_8c.html#ade314a04247b0f06b713297da4978e7b" title="Write a command to mouse." alt="" coords="195,13,321,39"/>
+<area shape="rect" id="node3" href="$group__utils.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Invokes sys_inb() system call but reads the value into a uint8_t variable." alt="" coords="369,13,460,39"/>
+</map>

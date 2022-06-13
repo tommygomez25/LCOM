@@ -1,0 +1,6 @@
+<map id="create_snake" name="create_snake">
+<area shape="rect" id="node1" title="Create a snake object." alt="" coords="5,56,105,83"/>
+<area shape="rect" id="node2" href="$snake_8c.html#a19e84833409fd73086c96050646968bb" title="Create a snake body object." alt="" coords="153,5,288,32"/>
+<area shape="rect" id="node3" href="$snake_8c.html#abddc3d28dbfdae71cee8759c0bd268e6" title="Create a snake head object." alt="" coords="153,56,288,83"/>
+<area shape="rect" id="node4" href="$snake_8c.html#a07b777bea420447a82bf7c27404103b6" title="Create a snake tail object." alt="" coords="159,107,283,133"/>
+</map>

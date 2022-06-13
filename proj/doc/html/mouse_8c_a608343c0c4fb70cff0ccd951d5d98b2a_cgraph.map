@@ -1,0 +1,5 @@
+<map id="draw_cursor" name="draw_cursor">
+<area shape="rect" id="node1" title="draw the cursor on the screen" alt="" coords="5,5,97,32"/>
+<area shape="rect" id="node2" href="$video__gr_8c.html#a843bebd62d0bad661abfa8c25a58de93" title="draws a xpm on the screen" alt="" coords="145,5,227,32"/>
+<area shape="rect" id="node3" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title="draws a pixel on the screen" alt="" coords="275,5,377,32"/>
+</map>

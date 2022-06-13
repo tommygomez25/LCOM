@@ -3,6 +3,10 @@
 #include "sprites/grass.xpm"
 #include "video_gr.h"
 
+/**
+ * @brief Struct relative to the grass
+ * 
+ */
 typedef struct {
     int x;   
     int y;    

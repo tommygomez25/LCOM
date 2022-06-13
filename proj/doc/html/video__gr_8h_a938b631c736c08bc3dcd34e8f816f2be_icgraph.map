@@ -1,0 +1,16 @@
+<map id="delete_xpm" name="delete_xpm">
+<area shape="rect" id="node1" title="deletes a xpm from the screen" alt="" coords="1088,183,1177,209"/>
+<area shape="rect" id="node2" href="$mouse_8c.html#aa01d8d5c2d53519c5a471f6fa3df3c56" title="cleans the cursor from the screen" alt="" coords="944,5,1040,32"/>
+<area shape="rect" id="node3" href="$menu_8c.html#a88fe85cb9ddb0d8df353007206f18170" title="This function handles an interrupt received from a device. Updates the cursor position,..." alt="" coords="723,56,896,83"/>
+<area shape="rect" id="node7" href="$game_8c.html#acc84e6b574bc58c64217355f06dbe395" title=" " alt="" coords="948,157,1036,184"/>
+<area shape="rect" id="node10" href="$menu_8c.html#a08d886baf75cbf778e6eafa9ac9a82a9" title="handles interrupt received mainly from keyboard when the game is lost ( if ESC is pressed,..." alt="" coords="497,208,671,235"/>
+<area shape="rect" id="node11" href="$menu_8c.html#ac568bafced107258d02aaed2297fa97b" title="while the user is entering a letter (to enter his name), this function draws the xpm corresponding to..." alt="" coords="947,259,1037,285"/>
+<area shape="rect" id="node12" href="$menu_8c.html#a2f6265b101df065d10038d1746e7c8c5" title=" " alt="" coords="739,259,880,285"/>
+<area shape="rect" id="node13" href="$game_8c.html#a131e5467d9237cc6f15e023be2fbc83e" title="Loads the XPMs needed for the gameState &#39;PLAY&#39;." alt="" coords="951,107,1033,133"/>
+<area shape="rect" id="node14" href="$menu_8c.html#a9fb30caa74edbe6d1a3a5ef8b134bfc5" title=" " alt="" coords="493,335,675,361"/>
+<area shape="rect" id="node4" href="$game_8c.html#a0b864f673ac845f6a8f8857296285dca" title="This function receives a device interrupt and depending on the game state of the game,..." alt="" coords="331,208,445,235"/>
+<area shape="rect" id="node5" href="$game_8c.html#afe902ca09bf015ddf076a6661dcd9595" title="This function is where the main loop occur. First, all the device interrupts are subscribed ,..." alt="" coords="163,208,283,235"/>
+<area shape="rect" id="node6" href="$proj_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,208,115,235"/>
+<area shape="rect" id="node8" href="$menu_8c.html#acdcb78551c70b53840dc99e98c64e9b9" title="loads the screen of the state &#39;GAME&#39;" alt="" coords="758,107,861,133"/>
+<area shape="rect" id="node9" href="$game_8c.html#a647ccf30a13d3d27a778baf6dcb66669" title="Handles the interrupt received from the device , during gamestate &#39;PLAY&#39;." alt="" coords="515,157,653,184"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="create_cursor" name="create_cursor">
+<area shape="rect" id="node1" title="Create a cursor object." alt="" coords="877,31,979,57"/>
+<area shape="rect" id="node2" href="$menu_8c.html#aad5187e1fb5aaeb32d0f92d0a2bc929d" title="loads the XPMs of the menus (including mouse cursor) and draws the menu and the mouse cursor" alt="" coords="723,31,829,57"/>
+<area shape="rect" id="node3" href="$game_8c.html#afe902ca09bf015ddf076a6661dcd9595" title="This function is where the main loop occur. First, all the device interrupts are subscribed ,..." alt="" coords="163,5,283,32"/>
+<area shape="rect" id="node5" href="$menu_8c.html#a2f6265b101df065d10038d1746e7c8c5" title=" " alt="" coords="513,31,655,57"/>
+<area shape="rect" id="node7" href="$menu_8c.html#a9fb30caa74edbe6d1a3a5ef8b134bfc5" title=" " alt="" coords="493,81,675,108"/>
+<area shape="rect" id="node4" href="$proj_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,5,115,32"/>
+<area shape="rect" id="node6" href="$game_8c.html#a0b864f673ac845f6a8f8857296285dca" title="This function receives a device interrupt and depending on the game state of the game,..." alt="" coords="331,31,445,57"/>
+</map>

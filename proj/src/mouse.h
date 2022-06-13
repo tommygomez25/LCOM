@@ -8,6 +8,10 @@
 #include "video_gr.h"
 #include "sprites/cursor.xpm"
 
+/**
+ * @brief Struct relative to the mouse cursor
+ * 
+ */
 typedef struct {
     int x, y;
     xpm_image_t img;

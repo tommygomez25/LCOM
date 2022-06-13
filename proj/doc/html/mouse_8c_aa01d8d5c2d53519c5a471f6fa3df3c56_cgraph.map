@@ -1,0 +1,5 @@
+<map id="clean_cursor" name="clean_cursor">
+<area shape="rect" id="node1" title="cleans the cursor from the screen" alt="" coords="5,5,101,32"/>
+<area shape="rect" id="node2" href="$video__gr_8c.html#a938b631c736c08bc3dcd34e8f816f2be" title="deletes a xpm from the screen" alt="" coords="149,5,239,32"/>
+<area shape="rect" id="node3" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title="draws a pixel on the screen" alt="" coords="287,5,389,32"/>
+</map>

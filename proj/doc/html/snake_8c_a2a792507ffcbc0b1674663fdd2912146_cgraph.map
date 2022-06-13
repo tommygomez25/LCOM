@@ -1,0 +1,5 @@
+<map id="draw_snake" name="draw_snake">
+<area shape="rect" id="node1" title="draws the snake on the screen" alt="" coords="5,5,96,32"/>
+<area shape="rect" id="node2" href="$video__gr_8c.html#a843bebd62d0bad661abfa8c25a58de93" title="draws a xpm on the screen" alt="" coords="144,5,225,32"/>
+<area shape="rect" id="node3" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title="draws a pixel on the screen" alt="" coords="273,5,376,32"/>
+</map>

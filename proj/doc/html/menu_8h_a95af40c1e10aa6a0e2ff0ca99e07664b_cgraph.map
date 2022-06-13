@@ -1,0 +1,8 @@
+<map id="letterhandle" name="letterhandle">
+<area shape="rect" id="node1" title="while the user is entering a letter (to enter his name), this function draws the xpm corresponding to..." alt="" coords="5,56,95,83"/>
+<area shape="rect" id="node2" href="$video__gr_8c.html#a938b631c736c08bc3dcd34e8f816f2be" title="deletes a xpm from the screen" alt="" coords="162,5,251,32"/>
+<area shape="rect" id="node4" href="$video__gr_8c.html#a843bebd62d0bad661abfa8c25a58de93" title="draws a xpm on the screen" alt="" coords="329,56,411,83"/>
+<area shape="rect" id="node5" href="$video__gr_8c.html#a99d2da2559e11200c6b40c469e9977ec" title="draws a rectangle on the screen" alt="" coords="143,107,271,133"/>
+<area shape="rect" id="node3" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title="draws a pixel on the screen" alt="" coords="469,56,572,83"/>
+<area shape="rect" id="node6" href="$video__gr_8c.html#a5e5b25bd525250f61f40b9e9f212d5e6" title="draws an horizontal line on the screen" alt="" coords="319,107,421,133"/>
+</map>

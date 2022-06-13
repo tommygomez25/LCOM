@@ -22,10 +22,13 @@ xpm_image_t snakeheaddown_img,snakeheadright_img,snakeheadup_img,snakeheadleft_i
 xpm_image_t snaketaildown_img,snaketailleft_img,snaketailright_img,snaketailup_img;
 xpm_image_t snaketurndownleft_img,snaketurndownright_img,snaketurnupleft_img,snaketurnupright_img;
 
+/**
+ * @brief Struct relative to a snake part (it can be head, body or tail)
+ * 
+ */
 typedef struct {
     int x;   
     int y;    
-    //xpm_row_t *xmap; /* snake é estruturado por xmp rows */
     xpm_image_t img;
 } snakepart;
 

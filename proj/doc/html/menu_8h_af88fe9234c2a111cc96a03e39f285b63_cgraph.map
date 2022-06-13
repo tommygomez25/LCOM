@@ -1,0 +1,7 @@
+<map id="loadLostMenu" name="loadLostMenu">
+<area shape="rect" id="node1" title="loads the screen of the state &#39;GAME&#39;" alt="" coords="5,31,108,57"/>
+<area shape="rect" id="node2" href="$game_8c.html#acc84e6b574bc58c64217355f06dbe395" title=" " alt="" coords="156,5,244,32"/>
+<area shape="rect" id="node5" href="$video__gr_8c.html#a843bebd62d0bad661abfa8c25a58de93" title="draws a xpm on the screen" alt="" coords="296,56,377,83"/>
+<area shape="rect" id="node3" href="$video__gr_8c.html#a938b631c736c08bc3dcd34e8f816f2be" title="deletes a xpm from the screen" alt="" coords="292,5,381,32"/>
+<area shape="rect" id="node4" href="$video__gr_8c.html#a08c498ffeb0a3962e3b7711b57397741" title="draws a pixel on the screen" alt="" coords="429,31,532,57"/>
+</map>

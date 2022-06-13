@@ -3,6 +3,10 @@
 #include "video_gr.h"
 #include "sprites/apple.xpm"
 
+/**
+ * @brief Struct relative to apple
+ * 
+ */
 typedef struct {
     int x;   
     int y;    

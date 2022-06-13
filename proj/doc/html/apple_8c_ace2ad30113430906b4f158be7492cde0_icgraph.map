@@ -1,0 +1,8 @@
+<map id="move_apple" name="move_apple">
+<area shape="rect" id="node1" title="generates x and y coordenates for the apple" alt="" coords="815,5,905,32"/>
+<area shape="rect" id="node2" href="$apple_8c.html#ab7db602b92bb5aac8acef76d0f054841" title="draws the apple in the game board" alt="" coords="680,5,767,32"/>
+<area shape="rect" id="node3" href="$game_8c.html#a647ccf30a13d3d27a778baf6dcb66669" title="Handles the interrupt received from the device , during gamestate &#39;PLAY&#39;." alt="" coords="493,5,632,32"/>
+<area shape="rect" id="node4" href="$game_8c.html#a0b864f673ac845f6a8f8857296285dca" title="This function receives a device interrupt and depending on the game state of the game,..." alt="" coords="331,5,445,32"/>
+<area shape="rect" id="node5" href="$game_8c.html#afe902ca09bf015ddf076a6661dcd9595" title="This function is where the main loop occur. First, all the device interrupts are subscribed ,..." alt="" coords="163,5,283,32"/>
+<area shape="rect" id="node6" href="$proj_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,5,115,32"/>
+</map>
