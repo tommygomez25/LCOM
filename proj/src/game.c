@@ -91,7 +91,6 @@ int(game_main_loop)() {
           if (msg.m_notify.interrupts & irq_tmr) {
             timer_int_handler();
             GeneralInterrupt(TIMER);
-            // swap_buffer();
             double_buffer();
           }
           break;
