@@ -26,10 +26,7 @@ void (kbc_ih)() {
         if(util_sys_inb(OUT_BUF,&scancode)){
           return;
         }
-
-        if(scancode == UP ||scancode == DOWN ||scancode == LEFT ||scancode == RIGHT ||scancode == ESC){
-          last = scancode;
-        }
+        last = scancode;
         uint8_t bytes[2];
         bytes[0] = scancode;
         if(scancode == TWOBYTES){

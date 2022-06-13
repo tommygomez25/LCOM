@@ -12,7 +12,7 @@ GameState gameState = MAINMENU;
 extern Cursor *cursor;
 extern snakepart *snake;
 extern apple *apple1;
-extern int size; /* snake size */
+extern int size;  /* snake size */
 extern int score; /* score of the player */
 
 int(game_main_loop)() {
@@ -20,7 +20,7 @@ int(game_main_loop)() {
   int ipc_status, r;
   message msg;
 
-  uint8_t timer_bit_no, kbd_bit_no, mouse_bit_no,rtc_bit_no;
+  uint8_t timer_bit_no, kbd_bit_no, mouse_bit_no, rtc_bit_no;
 
   if (kbd_subscribe_int(&kbd_bit_no) != 0) {
     return 1;
@@ -35,7 +35,7 @@ int(game_main_loop)() {
     return 1;
   }
 
-  if (rtc_subscribe_int(&rtc_bit_no) != 0){
+  if (rtc_subscribe_int(&rtc_bit_no) != 0) {
     return 1;
   }
 
@@ -50,7 +50,7 @@ int(game_main_loop)() {
 
   loadMainMenu();
 
-  while (gameState != EXIT /*&& last != ESC*/ ) {
+  while (gameState != EXIT /*&& last != ESC*/) {
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
       printf("driver_receive failed with: %d", r);
       continue;
@@ -84,13 +84,14 @@ int(game_main_loop)() {
             }
           }
 
-          if (msg.m_notify.interrupts & irq_rtc){
+          if (msg.m_notify.interrupts & irq_rtc) {
             rtc_ih();
             GeneralInterrupt(RTC);
           }
           if (msg.m_notify.interrupts & irq_tmr) {
             timer_int_handler();
             GeneralInterrupt(TIMER);
+            // swap_buffer();
             double_buffer();
           }
           break;
@@ -129,17 +130,14 @@ void GeneralInterrupt(Device device) {
     case MAINMENU:
       MainMenuInterruptHandler(device);
       break;
-    case PAUSEMENU:
-      // PauseMenuInterruptHandler(device);
+    case SAVE:
+      SaveInterruptHandler(device);
       break;
     case PLAY:
       PlayInterruptHandler(device);
       break;
     case SCOREBOARD:
-      // HelpMenuInterruptHandler(device);
-      break;
-    case WON:
-      // GameWonInterruptHandler(device);
+      ScoreBoardInterruptHandler(device);
       break;
     case LOST:
       GameLostInterruptHandler(device);
@@ -189,39 +187,35 @@ void PlayInterruptHandler(Device device) {
 
   switch (device) {
     case TIMER:
-     if(COUNTER % 4 == 0){
-      check_snake_apple_collision(apple1);
-      draw_score(200,1);
-      draw_grass();
-      draw_apple();
-      draw_snake();
-      define_snake_tail_sprite();
-      snake_update_movement();
-      define_snake_body_sprite();
-      
-      if (snake[size - 1].x >= 800 || snake[size - 1].x < 0 || snake[size - 1].y < 150 || snake[size - 1].y >= 600) {
-        gameState = LOST;
-        loadLostMenu();
-        break;
-      }
-      for (int i = 0; i < size - 1; i++) {
-        if (snake[i].x == snake[size - 1].x && snake[i].y == snake[size - 1].y) {
-          gameState = LOST;
+      if (COUNTER % 4 == 0) {
+        check_snake_apple_collision(apple1);
+        draw_score(200, 1);
+        draw_grass();
+        draw_apple();
+        draw_snake();
+        define_snake_tail_sprite();
+        snake_update_movement();
+        define_snake_body_sprite();
+
+        if (snake[size - 1].x >= 800 || snake[size - 1].x < 0 || snake[size - 1].y < 150 || snake[size - 1].y >= 600) {
           loadLostMenu();
+          free(snake);
+          free(apple1);
+          gameState = LOST;
           break;
         }
+        for (int i = 0; i < size - 1; i++) {
+          if (snake[i].x == snake[size - 1].x && snake[i].y == snake[size - 1].y) {
+            loadLostMenu();
+            free(snake);
+            free(apple1);
+            gameState = LOST;
+            break;
+          }
+        }
       }
-     }
       break;
     case KEYBOARD:
-      // PAUSE MENU
-      /*
-      if (scancode == ESC) {
-        gameState = PAUSEMENU;
-        LoadRtc();
-        LoadPauseMenu();
-        break;
-      }*/
       break;
     case MOUSE: // NAO FAZER NADA
       break;
@@ -231,46 +225,46 @@ void PlayInterruptHandler(Device device) {
 }
 
 void(loadGame)() {
-
-  xpm_load(zero_xpm,XPM_8_8_8,&numbers_img[0]);
-  xpm_load(one_xpm,XPM_8_8_8,&numbers_img[1]);
-  xpm_load(two_xpm,XPM_8_8_8,&numbers_img[2]);
-  xpm_load(three_xpm,XPM_8_8_8,&numbers_img[3]);
-  xpm_load(four_xpm,XPM_8_8_8,&numbers_img[4]);
-  xpm_load(five_xpm,XPM_8_8_8,&numbers_img[5]);
-  xpm_load(six_xpm,XPM_8_8_8,&numbers_img[6]);
-  xpm_load(seven_xpm,XPM_8_8_8,&numbers_img[7]);
-  xpm_load(eight_xpm,XPM_8_8_8,&numbers_img[8]);
-  xpm_load(nine_xpm,XPM_8_8_8,&numbers_img[9]);
-
-  delete_xpm(menu_background_img,0,0);
-  delete_xpm(logotip_img,250,50);
+  xpm_load(zero_xpm, XPM_8_8_8, &numbers_img[0]);
+  xpm_load(one_xpm, XPM_8_8_8, &numbers_img[1]);
+  xpm_load(two_xpm, XPM_8_8_8, &numbers_img[2]);
+  xpm_load(three_xpm, XPM_8_8_8, &numbers_img[3]);
+  xpm_load(four_xpm, XPM_8_8_8, &numbers_img[4]);
+  xpm_load(five_xpm, XPM_8_8_8, &numbers_img[5]);
+  xpm_load(six_xpm, XPM_8_8_8, &numbers_img[6]);
+  xpm_load(seven_xpm, XPM_8_8_8, &numbers_img[7]);
+  xpm_load(eight_xpm, XPM_8_8_8, &numbers_img[8]);
+  xpm_load(nine_xpm, XPM_8_8_8, &numbers_img[9]);
+  delete_xpm(menu_background_img, 0, 0);
+  delete_xpm(logotip_img, 250, 50);
 
   create_grass();
   create_apple();
   create_snake();
 }
 
-void (draw_score)(int x, int y){
-  int xx= 0;
+void(draw_score)(int x, int y) {
+  int xx = 0;
   int aux = score;
-  int aux2 = score-1;
+  int aux2 = score - 1;
 
-  while (aux2 >= 0){ /* delete previouse score */
+  while (aux2 >= 0) { /* delete previouse score */
     int i = aux2 % 10;
-    delete_xpm(numbers_img[i],x-xx,y);
-    xx+=20;
+    delete_xpm(numbers_img[i], x - xx, y);
+    xx += 20;
     aux2 = aux2 / 10;
-    if (aux2 == 0 ) break;
+    if (aux2 == 0)
+      break;
   }
 
-  xx= 0;
+  xx = 0;
 
-  while (aux >= 0){ /* draw new score */
+  while (aux >= 0) { /* draw new score */
     int i = aux % 10;
-    draw_xpm(numbers_img[i].bytes,&numbers_img[i],x-xx,y);
+    draw_xpm(numbers_img[i].bytes, &numbers_img[i], x - xx, y);
     xx += 20;
     aux = aux / 10;
-    if (aux == 0) break;
+    if (aux == 0)
+      break;
   }
 }

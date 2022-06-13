@@ -76,7 +76,6 @@ void draw_xpm(uint8_t *map, xpm_image_t * img, uint16_t x, uint16_t y);
  */
 int delete_xpm(xpm_image_t img, uint16_t x, uint16_t y);
 
-void swap_buffer();
 
 /**
  * @brief implementation of double buffer, copy secondary memory to main memory
