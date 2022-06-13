@@ -29,22 +29,22 @@ typedef struct {
     xpm_image_t img;
 } snakepart;
 
-void (create_snake)();
+void create_snake();
 
-void (create_snake_tail)();
+void create_snake_tail();
 
-void (create_snake_body)();
+void create_snake_body();
 
-void (create_snake_head)();
+void create_snake_head();
 
-void (draw_snake)();
+void draw_snake();
 
-void (check_snake_apple_collision)(apple* apple1);
+void check_snake_apple_collision(apple* apple1);
 
-void (define_snake_tail_sprite)();
+void define_snake_tail_sprite();
 
-void(snake_update_movement)();
+void snake_update_movement();
 
-void (define_snake_body_sprite)();
+void define_snake_body_sprite();
 
 
