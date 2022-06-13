@@ -1,37 +1,64 @@
-Breakcode: 0x9c
-18:42:42
-11/6/2022
-
-18:42:43
-11/6/2022
-
-18:42:44
-11/6/2022
-
-18:42:45
-11/6/2022
-
-18:42:46
-11/6/2022
-
-18:42:47
-11/6/2022
-
-18:42:48
-11/6/2022
-
-18:42:49
-11/6/2022
-
-18:42:50
-11/6/2022
-
-18:42:51
-11/6/2022
-
-18:42:52
-11/6/2022
-
-18:42:53
-11/6/2022
-
+1
+1
+2
+2
+l
+l
+l
+l
+l
+d
+p
+k
+w
+p
+number is 12 and name is llllldpkwp
+9
+9
+9
+9
+9
+9
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+number is 999 and name is aaaaaaaaaa
+4
+4
+x
+x
+x
+number is 4 and name is xxx
+0
+0
+a
+x
+x
+number is 0 and name is axx
+1
+1
+x
+x
+x
+x
+x
+number is 1 and name is xxxxx
+1
+1
+a
+number is 1 and name is a
+0
+0
+a
+d
+a
+number is 0 and name is ada
+Makecode: 0x01
+Breakcode: 0x81

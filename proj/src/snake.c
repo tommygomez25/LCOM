@@ -4,11 +4,15 @@ snakepart *snake;
 int size = 3;
 int previousmove = RIGHT;
 int speed = 20;
-int score = 9;
+int score = 0;
 
 extern uint8_t last; /* keyboard last scancode */
 
 void(create_snake)() {
+  size=3;
+  previousmove=RIGHT;
+  speed=20;
+  score=0;
   snake = malloc(50 * sizeof *snake);
   xpm_load(snakebodyhorizontal, XPM_8_8_8, &snakebodyhorizontal_img);
   xpm_load(snakebodyvertical, XPM_8_8_8, &snakebodyvertical_img);
@@ -83,7 +87,7 @@ void(check_snake_apple_collision)(apple *apple1) {
       snake[size].x -= 20;
       snake[size - 1].img = snakebodyhorizontal_img;
     }
-    else {
+    else if (last == RIGHT){
       snake[size].x += 20;
       snake[size - 1].img = snakebodyhorizontal_img;
     }
@@ -91,6 +95,7 @@ void(check_snake_apple_collision)(apple *apple1) {
     (size)++;
     apple1->x = (rand() % 40) * 20;
     apple1->y = ((rand() % 22) + 8) * 20;
+    apple1->counter = 0;
   }
 }
 
