@@ -93,10 +93,10 @@ void loadLostMenu();
 void loadSaveMenu();
 
 /**
- * @brief 
+ * @brief save score in the file 'highscores.txt'
  * 
- * @param score 
- * @param name 
+ * @param score score to be saved
+ * @param name name of the user
  */
 void savescore(int score, char* name);
 
